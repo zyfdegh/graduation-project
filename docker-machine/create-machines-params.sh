@@ -2,8 +2,8 @@
 
 # This script can create and boot rancheros(s) in virtualbox
 # Usage:
-# create 5 machines
-# #./create-machines.sh 5
+# To create a vm named rancheros-01 with 512M RAM
+# $./create-machine-params.sh rancheros-01 512
 
 
 ## create vm powered by virtualbox
@@ -53,43 +53,39 @@ function delete(){
 	docker-machine ssh $vm_name "rm $file"
 }
 
-echo "machine number: $1"
-machine_number=$1
+echo "machine name: $1"
+name=$1
 
 # CONFIGURATIONS AND SETUPS
 # config iso path and memory size
 iso=/root/school/project/docker-machine/rancheros.iso
-mem=512
+mem=$2
 # config ssh key path and saving path
 pubkey_path=$PWD/.ssh/id_rsa.pub
 saving_path=/home/docker/.ssh/authorized_keys2
 authorized_keys=/home/docker/.ssh/authorized_keys
 
-for n in `seq $machine_number`
-do
-	printf "\n"
-	printf "[%02d/%02d] call docker machine to create vm \n" $n $machine_number
-	# CREATE AND BOOT MACHINES
-	name=$(printf "rancheros-%02d" $n)	
-	create_vm $iso $mem $name
+printf "\n"
+printf "call docker machine to create vm \n"
+# CREATE AND BOOT MACHINES
+create_vm $iso $mem $name
 
-	printf "\n extra configurations begin...\n"
-	
-	# COPY MY SSH KEY
-	printf "copy my united public ssh key file...\n"
-	copy_key $pubkey_path $name $saving_path
+printf "\n extra configurations begin...\n"
 
-	# APPEND KEY
-	printf "append key..."
-	append_key $name $authorized_keys $saving_path
+# COPY MY SSH KEY
+printf "copy my united public ssh key file...\n"
+copy_key $pubkey_path $name $saving_path
 
-	# DELETE KEY
-	printf "delete key2..."
-	delete $name $saving_path
+# APPEND KEY
+printf "append key..."
+append_key $name $authorized_keys $saving_path
 
-	printf "\n memory status:\n"
-	free -h
-done
+# DELETE KEY
+printf "delete key2..."
+delete $name $saving_path
+
+printf "\n memory status:\n"
+free -h
 
 # list all docker machines
 docker-machine ls
