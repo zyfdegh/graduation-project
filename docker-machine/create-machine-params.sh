@@ -58,7 +58,7 @@ name=$1
 
 # CONFIGURATIONS AND SETUPS
 # config iso path and memory size
-iso=/root/school/project/docker-machine/rancheros.iso
+iso=$PWD/rancheros.iso
 mem=$2
 # config ssh key path and saving path
 pubkey_path=$PWD/.ssh/id_rsa.pub
