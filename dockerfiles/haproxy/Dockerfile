@@ -4,10 +4,8 @@ MAINTAINER RedMothball zyfdegg@gmail.com
 RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 COPY CentOS7-Base-163.repo /etc/yum.repos.d/
 
-RUN rpm -Uvh 'http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm'
-
 RUN yum clean all && yum makecache
 
-RUN yum install -y mesos
+RUN yum install -y haproxy
 
-RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+EXPOSE 8080 3868 9090 

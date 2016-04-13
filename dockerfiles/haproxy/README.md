@@ -1,0 +1,3 @@
+# haproxy
+
+Dockerfile for haproxy.
