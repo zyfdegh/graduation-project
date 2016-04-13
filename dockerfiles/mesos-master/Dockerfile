@@ -1,8 +1,5 @@
-FROM centos:7
+FROM FROM graduation-project/centos7
 MAINTAINER RedMothball zyfdegg@gmail.com
-
-RUN mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-COPY CentOS7-Base-163.repo /etc/yum.repos.d/
 
 RUN rpm -Uvh 'http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm'
 

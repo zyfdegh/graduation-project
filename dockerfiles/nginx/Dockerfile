@@ -1,4 +1,4 @@
-FROM centos:7
+FROM graduation-project/centos7
 MAINTAINER RedMothball zyfdegg@gmail.com
 
 COPY nginx.repo /etc/yum.repos.d/nginx.repo
