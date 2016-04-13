@@ -6,5 +6,3 @@ RUN rpm -Uvh 'http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1
 RUN yum clean all && yum makecache
 
 RUN yum install -y mesos
-
-RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

@@ -7,6 +7,4 @@ RUN yum clean all && yum makecache
 
 RUN yum install -y marathon
 
-RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 CMD ["marathon"]
