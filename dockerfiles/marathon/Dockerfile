@@ -7,4 +7,4 @@ RUN yum clean all && yum makecache
 
 RUN yum install -y marathon
 
-CMD ["marathon"]
+CMD ["marathon","--no-logger","--event_subscriber http_callback"]
