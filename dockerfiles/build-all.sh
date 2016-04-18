@@ -53,9 +53,19 @@ echo -e "\n================\n"
 echo "Building marathon..."
 cd $DOCKERFILES/marathon/
 ./build.sh
-if [[ $? -ne 0 ]]; then 
+if [[ $? -ne 0 ]]; then
 	 echo "build failed"
 	 exit 1
+fi
+
+echo -e "\n================\n"
+
+echo "Building mesos..."
+cd $DOCKERFILES/mesos/
+./build.sh
+if [[ $? -ne 0 ]]; then
+	echo "build failed"
+	exit 1
 fi
 
 echo -e "\n================\n"
