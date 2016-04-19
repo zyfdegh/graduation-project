@@ -1,5 +1,6 @@
 ---
 - name: common task
-  hosts: all
+  hosts: allmachines
+
   roles: 
   - { role: common }

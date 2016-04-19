@@ -1,7 +1,5 @@
-#connection
-ansible_connection: ssh
-ansible_ssh_user: docker
-ansible_ssh_pass: password
+---
 
-# mesos_version="0.25.0"
-# mongodb_version="3.0.8"
+ansible_connection: ssh
+ansible_ssh_user: rancher
+ansible_ssh_pass: rancher
