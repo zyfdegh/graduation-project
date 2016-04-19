@@ -1,5 +1,3 @@
 ---
 
 ansible_connection: ssh
-ansible_ssh_user: rancher
-ansible_ssh_pass: rancher
