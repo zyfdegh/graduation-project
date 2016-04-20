@@ -5,8 +5,4 @@ RUN rpm -Uvh 'http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1
 
 COPY daocloud-docker.repo /etc/yum.repos.d/
 
-RUN yum clean all && yum makecache
-
-RUN yum install -y mesos
-
-RUN yum install -y docker-engine
+RUN yum makecache && yum install -y docker-engine mesos
