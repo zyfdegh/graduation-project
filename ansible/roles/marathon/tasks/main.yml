@@ -1,0 +1,4 @@
+---
+# install marathon
+- name: install marathon
+  shell: yum install -y marathon

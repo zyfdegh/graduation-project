@@ -1,12 +1,15 @@
 ---
-- name: make a file to test if connected
-  shell: touch /root/ansible-touched
-
 - name: set timezone
   shell: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 - name: update system
-  shell: yum clean all && yum makecache && yum upgrade -y
+  shell: yum clean all && yum makecache && yum update-minimal -y
 
 - name: erase firewalled
   shell: yum erase -y firewalld
+
+# install git
+- include: git.yml
+
+# install zsh
+- include: zsh.yml

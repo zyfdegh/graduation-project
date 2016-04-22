@@ -1,0 +1,10 @@
+---
+# install zookeeper
+- name: update yum repo
+  shell: yum makecache
+
+- name: install zookeeper
+  shell: yum install -y zookeeper
+
+- name: install zookeeper-server
+  shell: yum install -y zookeeper-server

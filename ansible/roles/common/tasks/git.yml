@@ -1,0 +1,4 @@
+---
+# install git
+- name: install git
+  shell: yum install -y git

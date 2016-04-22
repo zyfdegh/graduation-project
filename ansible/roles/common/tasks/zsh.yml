@@ -1,0 +1,7 @@
+---
+# install zsh and oh-my-zsh to replace bash
+- name: install zsh
+  shell: yum install -y zsh
+
+- name: install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &

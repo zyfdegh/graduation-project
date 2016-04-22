@@ -1,0 +1,4 @@
+---
+# install haproxy for master node
+- name: install haproxy
+  shell: yum install -y haproxy
