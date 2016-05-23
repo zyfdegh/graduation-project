@@ -6,27 +6,27 @@ ARTIFACT=${OUTPUT_DIR}/controller
 
 echo "Start to go third party code from github.com ..."
 echo "Downloading logrus ..."
-# go get -v -u github.com/Sirupsen/logrus
+go get -v -u github.com/Sirupsen/logrus
 echo "Downloading properties"
-# go get -v -u github.com/magiconair/properties
+go get -v -u github.com/magiconair/properties
 echo "Downloading go-restful ..."
-# go get -v -u github.com/emicklei/go-restful
+go get -v -u github.com/emicklei/go-restful
 echo "Downloading mejson ..."
-# go get -v -u github.com/compose/mejson
+go get -v -u github.com/compose/mejson
 echo "Downloading mgo ..."
-# go get -v -u gopkg.in/mgo.v2
+go get -v -u gopkg.in/mgo.v2
 echo "Downloading go-dockerclient ..."
-# go get -v -u github.com/fsouza/go-dockerclient
+go get -v -u github.com/fsouza/go-dockerclient
 echo "Downloading jsonq ..."
-# go get -v -u github.com/jmoiron/jsonq
+go get -v -u github.com/jmoiron/jsonq
 echo "Downloading zk ..."
-# go get -v -u github.com/samuel/go-zookeeper/zk
+go get -v -u github.com/samuel/go-zookeeper/zk
 echo "Downloading uuid ..."
-# go get -v -u code.google.com/p/go-uuid/uuid
+go get -v -u code.google.com/p/go-uuid/uuid
 echo "Downloading gomail"
-# go get -v -u gopkg.in/gomail.v2
+go get -v -u gopkg.in/gomail.v2
 echo "Downloading context"
-# go get -v -u github.com/golang/net/context 
+go get -v -u github.com/golang/net/context 
 
 echo "Start to build linker controller ..."
 rm -f ${ARTIFACT}
