@@ -1,0 +1,81 @@
+{
+     
+    "same_tenant":"role:admin and field:tenant_id=%tenant_id",
+    "same_user":"role:common and field:user_id=%user_id",
+    
+
+    "model:create_apppackage": "",
+    "model:update_apppackage": "field:user_id=%user_id",
+    "model:delete_apppackage": "",
+    "model:delete_apppackages": "role:sysadmin or rule:same_tenant or rule:same_user",
+    "model:get_apppackage": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_apppackages": "",
+
+    "model:create_app": "",
+    "model:update_app": "field:user_id=%user_id",
+    "model:delete_app": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:get_app": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_apps": "role:sysadmin or rule:same_tenant or rule:same_user",
+
+    "model:create_repairpolicy": "",
+    "model:update_repairpolicy": "role:sysadmin or field:user_id=%user_id",
+    "model:delete_repairpolicy": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:get_repairpolicy": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_repairpolicies": "role:sysadmin or rule:same_tenant or rule:same_user",
+
+    "model:create_ippool":"role:sysadmin",
+
+    "model:create_ip": "role:sysadmin",
+    "model:update_ip": "role:sysadmin",
+    "model:delete_ip": "role:sysadmin",
+    "model:get_ip": "role:sysadmin",
+    "model:list_ips": "role:sysadmin",
+
+     
+    "default":"role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:publish_sg":"role:sysadmin",
+    "model:submit_sg": "field:user_id=%user_id and field:state=unpublished",
+    "model:create_sg": "",
+    "model:update_sg": "field:user_id=%user_id and field:state=unpublished",
+    "model:delete_sg": "rule:default and field:state=unpublished",
+    "model:delete_sgs": "role:sysadmin or rule:same_tenant or rule:same_user",
+    "model:get_sg": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_sgs": "role:sysadmin or rule:same_tenant or rule:same_user",
+
+    "model:create_sgi": "",
+    "model:update_sgi": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:delete_sgi": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:get_sgi": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_sgis": "role:sysadmin or rule:same_tenant or rule:same_user",
+
+    "model:create_sgo": "",
+    "model:update_sgo": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:delete_sgo": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:get_sgo": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:list_sgos": "role:sysadmin or rule:same_tenant or rule:same_user",
+    "model:scaleapp_sgo": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+
+    "model:create_billing": "",
+    "model:update_billing": "field:user_id=%user_id",
+    "model:list_billing": "",
+    "model:get_billing":"",
+
+    "model:list_account": "role:sysadmin or rule:same_tenant or rule:same_user",
+    "model:create_account":"",
+    "model:update_account":"",
+
+    "model:list_account_balance":"role:sysadmin or rule:same_tenant",
+
+	"model:create_notification": "role:sysadmin",
+    "model:list_notification": "role:sysadmin or rule:same_tenant or rule:same_user",
+    "model:get_notification": "role:sysadmin or rule:same_tenant or field:user_id=%user_id",
+    "model:delete_notification": "role:sysadmin",
+    "model:update_notification": "role:sysadmin",	
+
+
+    "model:list_quotas": "role:sysadmin or rule:same_tenant",
+    "model:update_quota": "role:sysadmin",
+
+    "model:list_metrix": "role:sysadmin or rule:same_tenant or rule:same_user"
+
+}

@@ -1,0 +1,30 @@
+{
+     
+    "same_tenant":"role:admin and field:tenant_id=%tenant_id",
+    "same_user":"role:common and field:user_id=%user_id",
+    
+
+    "model:create_cluster": "role:sysadmin or role:admin",
+    "model:update_cluster": "rule:same_tenant",
+    "model:get_cluster": "role:sysadmin or field:tenant_id=%tenant_id",
+    "model:delete_cluster": "role:sysadmin or rule:same_tenant",
+    "model:delete_clusters": "role:sysadmin or rule:same_tenant",
+    "model:list_cluster": "role:sysadmin or field:tenant_id=%tenant_id",
+
+    "model:list_clusterorder":"role:sysadmin or rule:same_tenant or rule:same_user",
+
+    "model:list_flavor": "role:sysadmin or field:tenant_id=%tenant_id",
+    "model:create_flavor": "role:sysadmin",
+    "model:update_flavor": "rule:sysadmin",
+
+    "model:create_hostlog": "role:sysadmin or role:admin",
+    "model:get_hostlog": "role:sysadmin or field:tenant_id=%tenant_id",
+    "model:list_hostlog": "role:sysadmin or field:tenant_id=%tenant_id",
+
+    "model:create_host": "role:sysadmin or role:admin",
+    "model:get_host": "role:sysadmin or field:tenant_id=%tenant_id",
+    "model:list_host": "role:sysadmin or field:tenant_id=%tenant_id",
+    "model:delete_host": "role:sysadmin or rule:same_tenant"
+
+
+}
