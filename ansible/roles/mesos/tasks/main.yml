@@ -1,6 +1,3 @@
 ---
-- name: add mesosphere repo
-  shell: rpm -Uvh http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
-
 - name: install mesos
-  shell: yum makecache && yum install -y mesos
+  shell: yum install -y mesos

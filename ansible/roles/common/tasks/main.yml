@@ -2,8 +2,11 @@
 - name: set timezone
   shell: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+# add and update repos
+- include: repo.yml
+
 - name: update system
-  shell: yum clean all && yum makecache && yum update-minimal -y
+  shell: yum clean all && yum makecache
 
 - name: erase firewalled
   shell: yum erase -y firewalld
@@ -13,3 +16,6 @@
 
 # install zsh
 - include: zsh.yml
+
+# install ansible dependencies
+- include: python-dep.yml

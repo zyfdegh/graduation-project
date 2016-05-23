@@ -1,0 +1,16 @@
+---
+# add repo
+- name: add cloudera repo
+  shell: rpm -UvhF http://archive.cloudera.com/cdh4/one-click-install/redhat/6/x86_64/cloudera-cdh-4-0.x86_64.rpm 
+
+- name: add mesosphere repo
+  shell: rpm -UvhF http://repos.mesosphere.com/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm
+
+- name: add daocloud docker repo
+  template: src=daocloud-docker.repo dest=/etc/yum.repos.d/daocloud-docker.repo mode=0644
+
+- name: backup centos base repo
+  shell: mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+
+- name: replace centos base repo
+  template: src=CentOS-Base.repo dest=/etc/yum.repos.d/CentOS-Base.repo mode=0644

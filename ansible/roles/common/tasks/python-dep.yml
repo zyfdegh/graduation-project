@@ -1,0 +1,4 @@
+---
+# install python dependency so as to run ansible
+- name: install dependency libselinux-python
+  shell: yum install -y libselinux-python

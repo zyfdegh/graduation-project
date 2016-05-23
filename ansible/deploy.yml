@@ -1,37 +1,32 @@
 ---
-#- name: common task
-#  hosts: newslaves
+- name: common task
+  hosts: allmachines
 
-#  roles: 
-#  - { role: common }
+  roles: 
+  - { role: common }
 
-#- name: install docker
-#  hosts: newslaves
+- name: install zookeeper
+  hosts: zookeeper
 
-#  roles:
-#  - { role: docker }
-
-#- name: install zookeeper
-#  hosts: zookeeper
-
-#  roles:
-#  - { role: zookeeper }
+  roles:
+  - { role: zookeeper }
 
 - name: install mesos
-  hosts: newslaves
+  hosts: allmachines
 
   roles:
   - { role: mesos }
 
-#- name: install marathon
-#  hosts: marathon
+- name: install marathon
+  hosts: marathon
   
-#  roles:
-#  - { role: java }
-#  - { role: marathon }
+  roles:
+  - { role: java }
+  - { role: marathon }
 
-#- name: install haproxy
-#  hosts: mesos_master
+- name: install docker
+  hosts: mesos_slave
 
-#  roles:
-#  - { role: haproxy }
+  roles:
+  - { role: docker }
+

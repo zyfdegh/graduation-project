@@ -1,0 +1,7 @@
+---
+# update time to ntp and set locale
+- name: install ntp
+  shell: yum install -y ntp ntpdate
+
+- name: update time
+  shell: systemctl stop ntpdate && ntpdate -s time.nist.gov && systemctl start ntpdate

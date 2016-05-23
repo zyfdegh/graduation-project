@@ -1,9 +1,7 @@
 ---
-- name: add daocloud docker repo
-  template: src=daocloud-docker.repo dest=/etc/yum.repos.d/daocloud-docker.repo mode=0644
-
-- name: update yum cache
-  shell: yum clean all && yum makecache
-
 - name: install docker
   shell: yum install -y docker-engine
+
+- name: enable and start docker demon
+  shell: systemctl enable docker && systemctl start docker
+
