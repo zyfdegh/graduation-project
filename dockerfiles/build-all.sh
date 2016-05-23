@@ -88,15 +88,15 @@ if [[ $? -ne 0 ]]; then
 	 exit 1
 fi
 
-echo -e "\n================\n"
-
-echo "Building nginx..."
-cd $DOCKERFILES/nginx/
-./build.sh
-if [[ $? -ne 0 ]]; then 
-	 echo "build failed"
-	 exit 1
-fi
+# echo -e "\n================\n"
+# 
+# echo "Building nginx..."
+# cd $DOCKERFILES/nginx/
+# ./build.sh
+# if [[ $? -ne 0 ]]; then 
+# 	 echo "build failed"
+# 	 exit 1
+# fi
 
 echo -e "\n================\n"
 
