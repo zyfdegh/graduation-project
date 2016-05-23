@@ -1,0 +1,52 @@
+FROM jenkins
+MAINTAINER zyfdegg@gmail.com
+
+USER root
+
+RUN apt-get -y update && \
+    apt-get -y install python-setuptools vim expect && \
+    easy_install supervisor && \
+    mkdir -p /opt/itri && \
+    ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# ldap config env for config.xml
+ENV LDAP_SERVER "ldap:\/\/192.168.3.61"
+ENV LDAP_ROOT_DN "dc=linkernetworks,dc=com"
+ENV LDAP_MANAGER_DN "cn=admin,dc=linkernetworks,dc=com"
+
+
+# Add jenkins config
+ADD config.xml ${JENKINS_HOME}/
+ADD hudson.tasks.Maven.xml ${JENKINS_HOME}/
+ADD credentials.xml ${JENKINS_HOME}/
+
+ADD scm-api.hpi ${JENKINS_HOME}/plugins/
+ADD git-client.hpi ${JENKINS_HOME}/plugins/
+ADD git.hpi ${JENKINS_HOME}/plugins/
+ADD notification.hpi ${JENKINS_HOME}/plugins/
+
+ADD apache-maven-3.3.3.tar.gz /opt
+
+ADD acceptRemoteHost.sh /acceptRemoteHost.sh
+
+ADD settings.xml /root/.m2/
+ADD settings.xml ${JENKINS_HOME}/.m2/
+
+ADD supervisord.conf /etc/supervisord.conf
+ADD start.sh /start.sh
+ADD stop.sh /stop.sh
+ADD config.sh /config.sh
+ADD restart.sh /restart.sh
+# ADD NMS_bin_Ubuntu.tar.gz /opt/itri/
+RUN chmod +x /*.sh
+RUN chown -R jenkins:jenkins ${JENKINS_HOME}/
+
+VOLUME ["/var/jenkins_home"]
+
+CMD ["/usr/local/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
+
+
+
+
+
+
+ 
