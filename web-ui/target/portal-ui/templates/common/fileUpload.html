@@ -1,0 +1,38 @@
+<div style="float:left;width:45%;margin:10px">
+	 <div class="panel panel-default" style="width:100%; float:left;border-color:#bbb; position:relative" ng-hide="finished">
+	 	<div style="width:100%; height:100%;z-index:9000;position:absolute;opacity:0.8;background-color: #fff;text-align:center" ng-show="ongoing">
+	 	  <img src="images/loading.gif" style="z-index:9001;margin-top:35px">
+	 	</div>
+		  <div class="panel-heading" style="font-weight:bold">{{'common.uploadFile' | translate}}{{ uploadStatus}}</div>
+		  <div class="panel-body">
+		  	<form ng-submit="doUpload();" enctype="multipart/form-data">
+			     <div class="form-group">
+				    <label>{{'common.chooseFile' | translate}}</label>
+				    <input type="file" ng-model="contentData.file">
+				    <p class="help-block"></p>
+				 </div>
+				 <div class="form-group">
+				    <label>{{'rightContent.linkops.dockerfileName' | translate}}</label>
+				    <input type="text" name="dockerfile" value="Dockerfile" class="form-control" ng-model="contentData.dockerfile">
+				    <p class="help-block"></p>
+				 </div>
+				 <div class="form-group">
+				    <label for="imageName">{{'rightContent.linkops.dockerImageName' | translate}}</label>
+				    <input type="text" id="imageName" name="imagename" class="form-control" ng-model="contentData.imagename">
+				    <p class="help-block"></p>
+				 </div>
+				 <div class="form-group">
+				    <label for="version">{{'rightContent.linkops.imageVersion' | translate}}</label>
+				    <input type="text" id="version" name="version" class="form-control" ng-model="contentData.version">
+				    <p class="help-block"></p>
+				 </div>
+				 <div class="form-row">
+					<button class="btn btn-success" ng-disabled="!buttonAvailable">{{'common.startUpload' | translate}}</button>
+				</div>
+		    </form>
+		  </div>
+	 </div>
+	 <div style="margin:10px; width:100%; float:left;border-color:#bbb" ng-show="finished">
+	 	Uploaded successfully. Linker admin will review it as soon as possible. Please go to "Uploaded File" page to check the status.
+	 </div>
+</div>

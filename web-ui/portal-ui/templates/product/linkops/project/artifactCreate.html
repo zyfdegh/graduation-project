@@ -1,0 +1,53 @@
+<div class="modal-header">
+     <h4 class="modal-title">{{'rightContent.linkops.createArtifact' | translate}}</h4>
+</div> 
+<div class="modal-body">
+   <form class="form-horizontal">
+	   <div class="form-group">
+	    <label for="projectName" class="col-sm-3 control-label">{{'rightContent.linkops.projectName' | translate}}</label>
+	    <div class="col-sm-9">
+	      <span style="line-height:1.9;font-weight:600;">{{projectInfo.name}}</span>
+	    </div>
+	  </div>
+	   <div class="form-group">
+	    <label for="groupId" class="col-sm-3 control-label">{{'rightContent.linkops.groupId' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="groupId" placeholder="{{'rightContent.linkops.groupId' | translate}}" ng-model="artifactInfo.groupId">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="artifactName" class="col-sm-3 control-label">{{'rightContent.linkops.artifactName' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="artifactName" placeholder="{{'rightContent.linkops.artifactName' | translate}}" ng-model="artifactInfo.name">
+	    </div>
+	  </div>
+	 
+	  <div class="form-group">
+	    <label for="type" class="col-sm-3 control-label">{{'common.type' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="type" placeholder="{{'common.type' | translate}}" ng-model="artifactInfo.type">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="multipleSelect" class="col-sm-3 control-label">{{'rightContent.linkops.assignDockerfiles' | translate}}</label>
+	    <div class="col-sm-9">
+	    	<div class="checkbox">
+			  <label>
+			    <input type="checkbox" value="all" ng-click="selectAllOperation()">
+			     Select All
+			  </label>
+			</div>
+	    	<div class="checkbox" ng-repeat="dockerfile in dockerfiles">
+			  <label>
+			    <input type="checkbox" value="dockerfile.id" ng-checked="selectAll" ng-click="modifySelectedFile($event,dockerfile.id)">
+			     {{dockerfile.zipfile}}
+			  </label>
+			</div>
+		 </div>
+	  </div>
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close('execute')">{{'common.create' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="close('cancel')">{{'common.cancel' | translate}}</button>
+</div>

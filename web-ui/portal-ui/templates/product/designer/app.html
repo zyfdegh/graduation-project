@@ -1,0 +1,160 @@
+<div id="right-content" ng-if="!showDetail">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.app.appModel' | translate}}</div></div>
+	<div ng-repeat="app in apps" class="app-item" ng-click="showAppDetail(app)">
+		<div class="app-image-container"><img src="{{app.imageSrc}}" class="container-image"/></div>
+		<div class="app-item-id"><div class="app-item-id-label" ng-cloak>{{app.id}}</div></div>
+	</div>
+	<div class="app-item" ng-click="newAppDetail()" ><img src="images/products/designer/app/newapp.png" style="margin-top:34px"/></div>
+</div>
+<div id="right-content" ng-if="showDetail">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.app.appDetails' | translate}}</div></div>
+	<div style="height:1520px;">
+		<div style="float: left;width: 200px;">
+			<div class="app-detail-item">
+				<div class="app-image-container"><img src="{{selectedApp.imageSrc}}" class="container-image"/></div>
+				<div class="app-item-id"><div class="app-item-id-label" ng-cloak>{{selectedApp.id}}</div></div>
+			</div>	
+		</div>
+		<form name="appform" style="float: left;margin-left: 80px;" novalidate>
+			<div class="app-detail-label">{{'rightContent.app.appId' | translate}}</div>
+			<input type="text" name="appid" class="app-detail-input" ng-model="selectedApp.id" placeholder="{{'rightContent.app.inputAppId' | translate}}" required ng-disabled="!allow_update_app" ng-pattern="/^(([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])\\.)*([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])$/"/>
+			<span class="form-error" ng-show="appform.appid.$invalid">
+				<span ng-show="appform.appid.$error.pattern" id="invalidID">{{'rightContent.app.appIdInvalid' | translate}}</span>
+				<span ng-show="appform.appid.$error.required">{{'rightContent.app.appIdInfo' | translate}}</span>
+			</span>
+			
+			<div class="app-detail-label">{{'rightContent.app.cpus' | translate}}</div>
+			<input type="number" name="cpus" min="0.1" step="0.1" ng-model="selectedApp.cpus" class="app-detail-input" required ng-disabled="!allow_update_app"/>
+			<span class="form-error" ng-show="appform.cpus.$invalid">
+				<span ng-show="appform.cpus.$error.required">{{'rightContent.app.cpusInfoRequired' | translate}}</span>
+				<span ng-show="appform.cpus.$error.min">{{'rightContent.app.cpusInfoMin' | translate}}</span>
+				<span ng-show="appform.cpus.$error.number">{{'rightContent.app.cpusInfoNumber' | translate}}</span>
+			</span>
+			
+			<div class="app-detail-label">{{'rightContent.app.memory' | translate}}</div>
+			<input type="number" name="memory" min="1" step="1" ng-model="selectedApp.mem" class="app-detail-input" required ng-disabled="!allow_update_app"/>
+			<span class="form-error" ng-show="appform.memory.$invalid">
+				<span ng-show="appform.memory.$error.required">{{'rightContent.app.memoryInfoRequired' | translate}}</span>
+				<span ng-show="appform.memory.$error.min">{{'rightContent.app.memoryInfoMin' | translate}}</span>
+				<span ng-show="appform.memory.$error.number">{{'rightContent.app.memoryInfoNumber' | translate}}</span>
+			</span>
+			
+			<div class="app-detail-label">{{'rightContent.app.instances' | translate}}</div>
+			<input type="number" name="instances"  min="1" step="1" ng-model="selectedApp.instances" class="app-detail-input" required ng-disabled="!allow_update_app"/>
+			<span class="form-error" ng-show="appform.instances.$invalid">
+				<span ng-show="appform.instances.$error.required">{{'rightContent.app.instancesInfoRequired' | translate}}</span>
+				<span ng-show="appform.instances.$error.min">{{'rightContent.app.instancesInfoMin' | translate}}</span>
+				<span ng-show="appform.instances.$error.number">{{'rightContent.app.instancesInfoNumber' | translate}}</span>
+			</span>
+			
+			<!--<div class="app-detail-label">{{'rightContent.app.command' | translate}}</div>
+			<input type="text" id="cmd" ng-model="selectedApp.cmd" class="app-detail-input" placeholder="{{'rightContent.app.commandPlaceholder' | translate}}" ng-disabled="!allow_update_app"/>-->
+			
+			<div class="app-detail-label">{{'rightContent.app.dockerImage' | translate}}</div>
+			<div class="btn-group" style="margin-top:20px;">
+		        <label class="btn btn-default" ng-model="radio.repoType" btn-radio="'linker'">{{'rightContent.app.dockerImageRadioFirst' | translate}}</label>
+		        <label class="btn btn-default" ng-model="radio.repoType" btn-radio="'dockerhub'">{{'rightContent.app.dockerImageRadioSecond' | translate}}</label>
+		       
+		    </div>
+		    <div class="form-group" style="margin-top:10px;" ng-show='radio.repoType=="linker"'>
+			           <label style="font-weight:bold;">{{'rightContent.app.dockerSelectImage' | translate}}</label>
+				       <select class="form-control" ng-model="dockerImage.fromLinker" style="width:500px;" ng-options="image for image in dockerImages track by image"  ng-disabled="!allow_update_app" ng-change="getImageTags(true)">         
+		              </select>
+		              <label style="font-weight:bold;margin-top:10px;">{{'rightContent.app.dockerSelectImageTag' | translate}}</label>
+		              <select class="form-control" ng-model="imageTag.tag" style="width:500px;" ng-options="tag for tag in imageTags track by tag"  ng-disabled="!allow_update_app">         
+		              </select>
+		              <p style="margin-top:7px;font-style:italic;color:red;">{{'rightContent.app.dockerSelectNote' | translate}}</p>
+		     </div>
+		     <div class="form-group" style="margin-top:10px;" ng-show='radio.repoType=="dockerhub"'>
+			           <label style="font-weight:bold;">{{'rightContent.app.dockerInputImage' | translate}}</label>			         
+				       <input type="text" name="docker_image" ng-model="dockerImage.fromDockerhub" class="form-control" required placeholder="{{'rightContent.app.dockerInputImagePlaceholder' | translate}}" style="width:500px;" ng-disabled="!allow_update_app"/>
+				       <span class="form-error" ng-show="appform.docker_image.$invalid">
+							<span ng-show="appform.docker_image.$error.required">{{'rightContent.app.dockerInputImageInfo' | translate}}</span>
+							</span>
+				       <p style="margin-top:7px;font-style:italic;color:red;">{{'rightContent.app.dockerInputImageNoteFirst' | translate}} <a href="https://hub.docker.com" target="_blank">DockerHub</a> {{'rightContent.app.dockerInputImageNoteSecond' | translate}}</p>
+		     </div>
+			
+			<div class="app-detail-label">{{'rightContent.app.dockerParameters' | translate}}
+				<span class="glyphicon glyphicon-plus" style="margin-left: 200px;cursor:pointer" title="{{'rightContent.app.add_parameter' | translate}}" ng-click="newParameter()" ng-if="allow_update_app"/>
+			</div>
+			<div style="height:120px;overflow: auto;margin-top:20px;width:680px" ng-if="selectedApp.container.docker.parameters.length>0">
+				<div class="app-detail-input" style="margin-top:10px;width:660px;height: 50px;" ng-repeat="par in selectedApp.container.docker.parameters">
+					<input type="checkbox" ng-model="par.editable" title="{{'rightContent.app.make_parameter_editable' | translate}}" style="float:left;margin-top:8px" ng-disabled="!allow_update_app"/>
+					<div style="width:200px;float:left;margin-left:20px;height:50px">
+						<input type="text" style="width:100%;font-size:14px" name="docker_par_name_{{$index}}" ng-model="par.vKey" placeholder="{{'rightContent.app.parameter_name' | translate}}" required ng-disabled="!allow_update_app"/>
+						<span class="form-error" ng-show="appform.docker_par_name_{{$index}}.$invalid" style="margin-left: 0px;">
+							<span ng-show="appform.docker_par_name_{{$index}}.$error.required" style="font-size:12px">{{'rightContent.app.parameterNameRequired' | translate}}</span>
+						</span>
+					</div>
+					<div style="width:100px;float:left;margin-left:20px;height:50px">
+						<input type="text" style="width:100%;font-size:14px" name="docker_par_value_{{$index}}" ng-model="par.vValue" placeholder="{{'rightContent.app.parameter_value' | translate}}" required ng-disabled="!allow_update_app"/>
+						<span class="form-error" ng-show="appform.docker_par_value_{{$index}}.$invalid" style="margin-left: 0px;">
+							<span ng-show="appform.docker_par_value_{{$index}}.$error.required" style="font-size:12px">{{'rightContent.app.parameterValueRequired' | translate}}</span>
+						</span>
+					</div>
+					<div style="width:200px;float:left;margin-left:20px;height:50px">
+						<input type="text" style="width:100%;font-size:14px" name="docker_par_desc_{{$index}}" ng-model="par.description" placeholder="{{'rightContent.app.parameter_desc' | translate}}" ng-disabled="!allow_update_app"/>
+					</div>
+					<span class="glyphicon glyphicon-remove" style="float:left;cursor:pointer;margin-left:20px;margin-top:3px" title="{{'rightContent.app.remove_parameter' | translate}}" ng-click="removeParameter($index)" ng-if="allow_update_app"/>
+				</div>
+			</div>
+			<div style="width:400px;margin-left:50px;margin-top:20px;text-align: center;font-size:20px" ng-if="selectedApp.container.docker.parameters.length==0">
+				{{'rightContent.app.no_parameters' | translate}}
+			</div>
+			
+			<div class="app-detail-label">{{'rightContent.app.volumes' | translate}}
+				<span class="glyphicon glyphicon-plus" style="margin-left: 200px;cursor:pointer" title="{{'rightContent.app.add_volume' | translate}}" ng-click="newVolume()" ng-if="allow_update_app"/>
+			</div>
+			<div style="height:120px;overflow: auto;margin-top:20px;width:680px" ng-if="selectedApp.container.volumes.length>0">
+				<div class="app-detail-input" style="margin-top:10px;width:660px;height: 50px;" ng-repeat="volume in selectedApp.container.volumes">
+					<div style="width:180px;float:left;margin-left:20px;height:50px">
+						<input type="text" style="width:100%;font-size:14px" name="volume_containerpath_{{$index}}" ng-model="volume.containerPath" placeholder="{{'rightContent.app.container_path' | translate}}" required ng-disabled="!allow_update_app"/>
+						<span class="form-error" ng-show="appform.volume_containerpath_{{$index}}.$invalid" style="margin-left: 0px;">
+							<span ng-show="appform.volume_containerpath_{{$index}}.$error.required" style="font-size:12px">{{'rightContent.app.volumeContainerPathRequired' | translate}}</span>
+						</span>
+					</div>
+					<div style="width:180px;float:left;margin-left:20px;height:50px">
+						<input type="text" style="width:100%;font-size:14px" name="volume_hostpath_{{$index}}" ng-model="volume.hostPath" placeholder="{{'rightContent.app.host_path' | translate}}" required ng-disabled="!allow_update_app"/>
+						<span class="form-error" ng-show="appform.volume_hostpath_{{$index}}.$invalid" style="margin-left: 0px;">
+							<span ng-show="appform.volume_hostpath_{{$index}}.$error.required" style="font-size:12px">{{'rightContent.app.volumeHostPathRequired' | translate}}</span>
+						</span>
+					</div>
+					<div style="width:140px;float:left;margin-left:20px;height:50px">
+						<select ng-model="volume.mode" style="width:100%;" ng-disabled="!allow_update_app">  
+							<option value="RO">{{'rightContent.app.ro' | translate}}</option>
+							<option value="RW">{{'rightContent.app.rw' | translate}}</option>
+		              	</select>
+					</div>
+					<span class="glyphicon glyphicon-remove" style="float:left;cursor:pointer;margin-left:20px;margin-top:3px" title="{{'rightContent.app.remove_volume' | translate}}" ng-click="removeVolume($index)" ng-if="allow_update_app"/>
+				</div>
+			</div>
+			<div style="width:400px;margin-left:50px;margin-top:20px;text-align: center;font-size:20px" ng-if="selectedApp.container.volumes.length==0">
+				{{'rightContent.app.no_volumes' | translate}}
+			</div>
+			
+			<div class="app-detail-label">{{'rightContent.app.environment' | translate}}</div>
+			<textarea placeholder="{{'rightContent.app.environmentPlaceholder' | translate}}" id="env" class="app-detail-textarea" ng-model="selectedApp.env" ng-disabled="!allow_update_app"></textarea>
+			
+			<div class="app-detail-label">{{'rightContent.app.exposePorts' | translate}}</div>
+			<input type="radio" name="exposePorts" ng-model="selectedApp.exposePorts" ng-disabled="!allow_update_app" value="yes" style="margin-top:20px"> {{'rightContent.app.yes' | translate}}
+			<input type="radio" name="exposePorts" ng-model="selectedApp.exposePorts" ng-disabled="!allow_update_app" value="no" style="margin-left:30px;margin-top:20px"> {{'rightContent.app.no' | translate}}
+			
+			<div class="app-detail-label">{{'rightContent.app.scale_enabled' | translate}}&nbsp;<input type="checkbox" ng-model="selectedApp.scale.enabled" style="float:left;margin-top:8px" ng-disabled="!allow_update_app"/></div>
+			<div class="form-group" style="margin-top:10px;" ng-show='selectedApp.scale.enabled ==true'>
+				<label style="font-weight:bold;">{{'rightContent.app.scale_minNum' | translate}}</label>
+				<input type="number" style="width:100%;font-size:14px" name="scale_minNum" ng-model="selectedApp.scale.min_num" placeholder="{{'rightContent.app.scale_minNum' | translate}}" required ng-disabled="!allow_update_app"/>
+		              	<label style="font-weight:bold;margin-top:10px;">{{'rightContent.app.scale_maxNum' | translate}}</label>
+		              	<input type="number" style="width:100%;font-size:14px" name="scale_minNum" ng-model="selectedApp.scale.max_num" placeholder="{{'rightContent.app.scale_maxNum' | translate}}" required ng-disabled="!allow_update_app"/>
+		              	<label style="font-weight:bold;margin-top:10px;">{{'rightContent.app.scale_step' | translate}}</label>
+		              	<input type="number" style="width:100%;font-size:14px" name="scale_step" ng-model="selectedApp.scale.scale_step" placeholder="{{'rightContent.app.scale_step' | translate}}" required ng-disabled="!allow_update_app"/>
+		     	</div>
+			<div class="app-detail-label">{{'rightContent.app.constraints' | translate}}</div>
+			<textarea placeholder="{{'rightContent.app.constraintsPlaceholder' | translate}}" id="constraints" class="app-detail-textarea" ng-model="selectedApp.constraints" ng-disabled="!allow_update_app"></textarea>
+		</form>
+	</div>
+	<div class="right-content-foot">
+		<span class="right-content-foot-button" ng-click="goBackToAppList(selectedApp)">{{'rightContent.app.Cancel' | translate}}</span>
+		<span class="right-content-foot-button" ng-click="saveApp(selectedApp)" ng-if="allow_update_app">{{'rightContent.app.Save' | translate}}</span>
+		<span class="right-content-foot-button" ng-if="detailTitle=='App Details' && allow_delete_app" ng-click="confirmDeleteApp(selectedApp)">{{'rightContent.app.Delete' | translate}}</span>
+	</div>
+</div>

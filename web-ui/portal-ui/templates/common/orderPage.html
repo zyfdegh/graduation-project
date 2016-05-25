@@ -1,0 +1,31 @@
+<div class="modal-header">
+     <h4 class="modal-title" ng-if="apps.length>0">{{'common.orderService' | translate}}: {{id}}</h4>
+     <h4 class="modal-title" ng-if="apps.length==0">{{'common.orderService' | translate}}</h4>
+</div>
+<div class="modal-body" style="overflow: auto;min-height:100px;max-height:400px">
+    <div style="width:80%;margin:auto;" ng-repeat="app in apps" ng-if="apps.length>0">
+    		<div class="a-apps-title" style="width:100%;margin-top:0px">{{app.id}}</div>
+		<div style="width:100%;height:40px" ng-repeat="par in app.parameters">
+			<div style="width:60%;margin:auto">
+				<div style="width:30%;text-align: right;float:left;margin-top:9px;">
+					<span>{{par.name}}</span>
+				</div>
+				<div style="width:70%;float:right">
+					<input type="text" ng-model="par.value" style="margin-left:20px;width:200px;margin-top:7px">
+				</div>
+			</div>
+		</div>
+    </div>
+    <div ng-if="apps.length==0">
+    		<div class="modal-icon-area">
+	        <span class="confirm-icon glyphicon glyphicon-question-sign" aria-hidden="true" ></span> 
+	    </div>
+	    <div class="modal-font-area">
+	        <span >{{'common.orderConfirmQues' | translate}} {{id}} ?</span> 
+	    </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close('execute')">{{'common.orderBtn' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="close('cancel')">{{'common.cancelBtn' | translate}}</button>
+</div>

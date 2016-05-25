@@ -1,0 +1,29 @@
+<div enforce-focus>
+	<div class="modal-header">    
+    	<h4>{{'rightContent.serviceDesign.priceTitle' | translate}}</h4>
+  	</div>
+  	<div class="modal-body">
+	    <form name="priceform">
+		     <div class="form-group">
+			    <label>{{'rightContent.serviceDesign.priceForDesign' | translate}}</label>
+			    <input type="number" name="serviceprice" ng-model="price" min="0" step="0.1" class="form-control" required>
+			    <span class="form-error" ng-show="priceform.serviceprice.$invalid">
+					<span ng-show="priceform.serviceprice.$error.required">{{'rightContent.serviceDesign.priceRequired' | translate}}</span>
+					<span ng-show="priceform.serviceprice.$error.min">{{'rightContent.serviceDesign.priceMin' | translate}}</span>
+					<span ng-show="priceform.serviceprice.$error.number">{{'rightContent.serviceDesign.priceNumber' | translate}}</span>
+				</span>
+			 </div>
+			 <div class="form-group">
+			    <label>{{'rightContent.serviceDesign.descForDesign' | translate}}</label>
+			    <input type="text" name="servicedesc" value="Dockerfile" class="form-control" ng-model="desc" required>
+			     <span class="form-error" ng-show="priceform.servicedesc.$invalid">
+					<span ng-show="priceform.servicedesc.$error.required">{{'rightContent.serviceDesign.descRequired' | translate}}</span>
+				</span>
+			 </div>
+	    </form>
+  	</div>
+  	<div class="modal-footer">  
+  		<button class="btn btn-primary" ng-click="close('execute')">{{'rightContent.serviceDesign.publishBtn' | translate}}</button>
+		<button class="btn btn-primary" ng-click="close('close')">{{'rightContent.app.Cancel' | translate}}</button>
+  </div>
+</div>

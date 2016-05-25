@@ -1,0 +1,47 @@
+<div id="right-content" class="mpp-content">
+  <tabset class="tab-set">
+    <tab>
+    	<tab-heading>
+          <i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Projects
+       </tab-heading>
+       <div class="tab-content">
+       	    <div style="float:right; margin-bottom:8px">
+               <button type="button" class="btn btn-primary" ng-click="createProject()">Create Project</button>
+       	    </div>
+       	    <div class="list-group">			  
+			  <div class="list-group-item" ng-repeat="project in projects">
+                   <div style="float:left">
+	                   <h4 class="list-group-item-heading">{{project.name}}</h4>
+				       <p class="list-group-item-text">{{project.description}}</p>
+			      </div>
+
+				   <div class="btn-group" style="float:right">
+				      <button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				        Action <span class="caret"></span>
+				      </button>
+				      <ul class="dropdown-menu dropdown-menu-right">
+				        <li role="menuitem"><a href="">Update</a></li>
+				        <li role="menuitem"><a href="">Delete</a></li>
+				        <li class="divider"></li>
+				        <li role="menuitem"><a href="">Deploy</a></li>				        
+				        <li role="menuitem"><a href="">View Deploy History</a></li>
+				      </ul>
+				    </div>
+			  </div>
+			 		  
+			</div>
+            
+       </div>     
+    </tab>
+    <tab>
+      <tab-heading>
+        <i class="glyphicon glyphicon-open"></i>&nbsp;&nbsp;Content Upload
+      </tab-heading>
+    </tab>
+     <tab>
+      <tab-heading>
+        <i class="glyphicon glyphicon-list-alt"></i>&nbsp;&nbsp;Tools Information
+      </tab-heading>
+    </tab>
+  </tabset>
+</div>

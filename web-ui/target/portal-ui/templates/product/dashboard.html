@@ -1,0 +1,30 @@
+<div id="right-content" class="mpp-content">
+   	<div style="float:left">
+			<nvd3 options="pieChartOptions" data="pieChartData"></nvd3>
+			<div class="chart-title" style="font-weight:900; margin-left:90px; color:#555;font-size:12px">
+				{{'rightContent.dashboard.instanceStatusNum' | translate}}
+			</div>
+		
+	</div>
+	<div style="float:right">
+			<nvd3 options="cpuChartOptions" data="cpuChartData"></nvd3>
+			<div class="chart-title" style="font-weight:900; margin-left:90px; color:#555;font-size:12px">
+				{{'rightContent.dashboard.cpuMatrix' | translate}}
+			</div>
+		
+	</div>
+	<div style="float:left;margin-top:80px">
+			<nvd3 options="memeoryChartOptions" data="memoryChartData"></nvd3>
+			<div class="chart-title" style="font-weight:900;  margin-left:90px; color:#555;font-size:12px">
+				{{'rightContent.dashboard.memoryMatrix' | translate}}
+			</div>
+		
+	</div>
+	<div style="float:right;margin-top:80px">
+			<nvd3 options="diskChartOptions" data="diskChartData"></nvd3>
+			<div class="chart-title" style="font-weight:900;  margin-left:90px; color:#555;font-size:12px">
+				{{'rightContent.dashboard.diskMatrix' | translate}}
+			</div>
+		
+	</div>
+</div>

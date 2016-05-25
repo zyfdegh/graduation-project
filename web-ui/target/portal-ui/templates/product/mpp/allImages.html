@@ -1,0 +1,48 @@
+<!-- <tabset class="mpp-block">
+    <tab heading="Linker Products"> -->
+       <div class="mpp-block" style="width:{{layout.all.width}}" ng-if="layout.all.display">
+			<div class="mpp-block-title">{{layout.all.title|translate}}</div>
+			<div class="mpp-block-content">
+				  <div class="row" style="margin-bottom:30px" ng-repeat="service in allServices">
+					<div style="width:10%;float:left"><img src="{{service.image}}" width="100%"></div>
+					<div style="width:75%;float:left;margin:10px">
+					    <div style="font-weight:600">{{service.name}}</div><br>
+					    <div>{{service.desc}}</div>
+					</div>
+					<button class="btn btn-primary" style="float:left;margin-top:10px">${{service.price}}</button>
+				</div>
+			</div>
+		</div>
+      <!-- </tab>
+      <tab>
+      <tab-heading>
+         DockerHub Images
+      </tab-heading>
+       <div class="mpp-block" style="width:{{layout.all.width}}" ng-if="layout.all.display">
+			<!-- <div class="mpp-block-title">
+               <input type="text" style="float:left;margin-top:10px;width:100%;" class="form-control"  placeholder="image name" ng-model="searchedImage.name">
+               <button class="btn btn-primary" style="float:left;margin-top:10px" ng-click="listDockerHubImage()">search</button>
+              
+			</div> 
+			<div class="input-group">
+				<span class="input-group-addon">
+			        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			    </span>
+			  <input type="text" class="form-control" placeholder="image" ng-model="searchedImage.name" ng-enter="listDockerHubImage()">
+			</div>
+			<div class="mpp-block-content">
+				  <div class="row" style="margin-bottom:30px;" ng-repeat="image in images">
+					
+					<div style="width:75%;float:left;margin:10px">
+					    <div style="font-weight:600;">{{image.repo_name}}</div>
+					    <br/>
+					    <div>{{image.short_description}}</div>
+					</div>				
+				</div>
+				<button class="btn btn-success" ng-click="listDockerHubImage()">Show More</button>
+			</div>
+	  </div>
+    </tab>
+</tabset>
+
+ -->

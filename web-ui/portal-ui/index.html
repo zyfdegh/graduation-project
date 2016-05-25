@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html ng-app="LinkerCloud">
+   <head ng-controller="ThemeController">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta http-equiv="CACHE-CONTROL" content="private"/>		  
+		<meta http-equiv="Content-Encoding" content="gzip"/>	   
+		<title>Linker Cloud Platform</title>
+		<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css" />
+        
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+		<link ng-repeat="href in stylesheet.hrefs" ng-href="{{href}}" rel="stylesheet" />
+		<link rel="stylesheet" href="js/libs/nvd3/nv.d3.min.css">
+		<link href="css/zTreeStyle/zTreeStyle.css" rel="stylesheet"/>	
+		<link media="screen" rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">		
+   		<link href="css/pagination.css" rel="stylesheet"/>
+
+        <script type="text/javascript" src="js/libs/angular.min.js" ></script>
+		<script type="text/javascript" src="js/libs/angular-route.min.js" ></script>
+		<script type="text/javascript" src="js/libs/angular-ui-router.min.js" ></script>
+		
+        <script type="text/javascript" src="js/libs/angular-translate.min.js" ></script>
+        <script type="text/javascript" src="js/libs/angular-translate-loader-static-files.min.js" ></script>
+        <script type="text/javascript" src="js/libs/angular-cookies.min.js" ></script>
+        <script type="text/javascript" src="js/libs/angular-translate-storage-cookie.min.js" ></script>
+        <script type="text/javascript" src="js/libs/angular-translate-storage-local.min.js" ></script>
+		<script type="text/javascript" src="js/libs/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="js/libs/underscore.js" ></script>
+	
+
+		 <script type="text/javascript" src="js/libs/d3/d3.min.js"></script>
+		 <script type="text/javascript" src="js/libs/nvd3/nv.d3.min.js"></script> 
+		 <script type="text/javascript" src="js/libs/angular-nvd3/dist/angular-nvd3.min.js"></script>
+
+		
+		<script type="text/javascript" src="js/libs/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/libs/ui-bootstrap-tpls-0.13.2.min.js"></script>
+	   
+		<script type="text/javascript" src="js/libs/jquery.ztree.core-3.5.min.js" ></script>
+		<script type="text/javascript" src="js/libs/vue.min.js" ></script>
+		
+		<script type="text/javascript" src="js/libs/laydate/laydate.js"></script>
+		<!--routes-->
+		<!-- build:js js/scripts.min.js -->
+		<script type="text/javascript" src="js/routes/navigator.js" ></script>
+
+	    	<!--common controllers-->
+		<script type="text/javascript" src="js/controllers/common/modal.js" ></script>
+
+		<!--main nav controllers-->
+		<script type="text/javascript" src="js/controllers/theme.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/mainpage.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/home.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/products.js" ></script>
+
+		<script type="text/javascript" src="js/controllers/main/documents.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/partners.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/pricing.js" ></script>
+		<script type="text/javascript" src="js/controllers/main/solutions.js" ></script>
+		<!--products-->
+		<script type="text/javascript" src="js/controllers/product/services.js" ></script>
+		
+		<script type="text/javascript" src="js/controllers/product/dashboard.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/designer/app.js" ></script>
+		
+		<script type="text/javascript" src="js/controllers/product/designer/main.js" ></script>
+	
+		<script type="text/javascript" src="js/controllers/product/designer/service.js" ></script>
+	
+		<script type="text/javascript" src="js/controllers/product/identity/main.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/identity/role.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/identity/tenant.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/identity/user.js" ></script>
+
+		<script type="text/javascript" src="js/controllers/product/layout.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/payment/billing.js" ></script>
+
+		<script type="text/javascript" src="js/controllers/product/resources/main.js" ></script>
+		
+
+        		<script type="text/javascript" src="js/controllers/product/linkops/project.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/linkops/content.js" ></script>
+		<script type="text/javascript" src="js/controllers/product/linkops/tool.js" ></script>
+
+		<!--services-->
+		<!--common-->
+		<script type="text/javascript" src="js/services/common/api_response.js" ></script>
+		<script type="text/javascript" src="js/services/common/confirmation.js" ></script>
+		<script type="text/javascript" src="js/services/common/locale.js" ></script>
+		<script type="text/javascript" src="js/services/common/dockerImage.js" ></script>
+		<script type="text/javascript" src="js/services/common/imagePreloader.js" ></script>
+		
+		<!--main-->
+		<script type="text/javascript" src="js/services/main/mainpage.js" ></script>
+		<script type="text/javascript" src="js/services/main/home.js" ></script>
+		<script type="text/javascript" src="js/services/main/products.js" ></script>
+		<!--products-->
+		<script type="text/javascript" src="js/services/product/services.js" ></script>
+		<script type="text/javascript" src="js/services/product/designer/app.js" ></script>
+		<script type="text/javascript" src="js/services/product/designer/service.js" ></script>
+		<script type="text/javascript" src="js/services/product/layout.js" ></script>
+		<!--<script type="text/javascript" src="js/services/product/cicd.js" ></script> -->
+		<script type="text/javascript" src="js/services/product/identity/tenant.js" ></script>
+		<script type="text/javascript" src="js/services/product/mpp.js" ></script>
+		<script type="text/javascript" src="js/services/product/payment/billing.js" ></script>
+		<script type="text/javascript" src="js/services/login/logout.js" ></script>
+		<script type="text/javascript" src="js/services/product/linkops/project.js" ></script>
+		<script type="text/javascript" src="js/services/product/dashboard.js" ></script>
+
+		<!--directive-->
+		<script type="text/javascript" src="js/directives/product/designer/dragapp.js" ></script>
+		<script type="text/javascript" src="js/directives/product/mpp/mpp-advertise.js"></script>
+		<script type="text/javascript" src="js/directives/product/mpp/popular_products.js"></script>
+		<script type="text/javascript" src="js/directives/product/mpp/featured_products.js"></script>
+		<script type="text/javascript" src="js/directives/product/mpp/new_products.js"></script>
+		<script type="text/javascript" src="js/directives/product/mpp/all_products.js"></script>
+		<script type="text/javascript" src="js/directives/product/layout/layout_template.js"></script>
+		<script type="text/javascript" src="js/directives/product/layout/layout_designer.js"></script>
+        
+		<!--non-angular plugin-->
+		<script type="text/javascript" src="js/non-angular/libs/jquery-ui.js" ></script>
+		<script type="text/javascript" src="js/non-angular/libs/bootstrap-contextmenu.js" ></script>
+		<script type="text/javascript" src="js/non-angular/libs/jit.js" ></script>
+		<script type="text/javascript" src="js/non-angular/libs/jquery-validate.js" ></script>
+		<script type="text/javascript" src="js/non-angular/libs/jquery.i18n.properties.js"></script>
+		
+		<script type="text/javascript" src="js/non-angular/utils/ctrls/drag.js" ></script>
+		<script type="text/javascript" src="js/non-angular/utils/ctrls/utils.js" ></script>
+		<script type="text/javascript" src="js/non-angular/utils/ctrls/simulate.js" ></script>
+		
+		<script type="text/javascript" src="js/non-angular/utils/view/modalTemplate.js" ></script>
+		<!--model design plugin-->
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/contextMenu.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/drawTree.js" ></script>	
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/configurationPackage/cp_Choose_App.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/configurationPackage/cpBasic.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/configurationPackage/cpConfig.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/ctrls/configurationPackage/cpNotify.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/views/groupItem.js" ></script>
+		<script type="text/javascript" src="js/non-angular/serviceModelTree/views/cpView.js" ></script>
+		<!--my service plugin-->
+		<script type="text/javascript" src="js/non-angular/myService/ctrls/myservice.js" ></script>
+		<script type="text/javascript" src="js/non-angular/myService/views/serviceDetail.js" ></script>
+		<script type="text/javascript" src="js/services/common/fileUpload.js" ></script>
+ 		<script type="text/javascript" src="js/services/product/linkops/content.js" ></script>
+ 		<script type="text/javascript" src="js/directives/common/fileUpload.js"></script>
+ 		<script type="text/javascript" src="js/directives/common/pagination.js"></script>
+ 		<!-- endbuild -->
+		<script>
+			$.i18n.properties({
+				name:'Messages', 
+				path:'js/non-angular/i18n/'+ localStorage.NG_TRANSLATE_LANG_KEY +'/', 
+				mode:'map'
+			});
+		</script>
+     </head>
+   <body>
+        <header>
+		   <div class="header" ng-controller="MainNavController">
+		        <div class="linker-logo"><img src="images/logo/logobeta.png"></div> 
+				<div class="linker-nav-hrefs">
+				   <div class="linker-nav-href" ng-repeat="item in navigators" ng-click="selectthis(item.name)" ng-show="{{item.ngshow}}" ng-cloak>
+				      <a class="{{item.ngclass}}" href="#{{item.href}}">{{item.name | translate}}</a>
+				   </div>
+				</div>
+				<div style="float:left; height:69px;border-right:1px solid #fff;"></div>
+				<div style="float:left; height:69px;border-left:1px solid #ccc;"></div>
+				<div class="btn-group inner-button" style="padding:28px 0; width:8%;">
+	                <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                  <span style="margin-right:10px;margin-left:20px;font-weight:600;">{{selectedLang.display}}</span> <span class="caret"></span>
+	                </span>
+	                <ul class="dropdown-menu ">
+	                  <li role="menuitem" ng-repeat="lang in supportedLangs">
+	                  	<a ng-click="languageSwitch(lang)">{{lang.display}}</a>	
+	                  </li>
+	                </ul>
+                </div>
+				<div style="float:right; height:70px; padding: 28px 10px;" ng-show="logged">		 
+				     <span style="font-weight:bold;margin-right:6px;"> {{currentUser.name}}</span>
+                     <a ng-click="logout()">{{'logout' | translate}}</a>				    
+                </div>
+                <div style="float:right; height:70px; padding: 28px 30px;" ng-show="!logged">		 
+                    <a ng-click="login()">{{'signIn' | translate}}</a>				    
+                </div>
+                 <div style="float:right; height:70px; padding: 28px 10px;" ng-show="!logged">		 
+                    <a ng-click="signup()">{{'signUp' | translate}}</a>				    
+                </div>
+		   </div>
+		</header>
+		<div class="page-content" ui-view></div>
+		<div ng-include="'templates/common/footer.html'"></div>      
+		<!--demo-->
+		<div id="linker-dialog"></div>
+		<div class="modal fade" id="linker-alert" role="dialog"></div>
+		<div id="group-menu">
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a tabindex="0" href="javascript:void(0)">Add Dependency</a></li>
+		    <li><a tabindex="1" href="javascript:void(0)">Rename ID</a></li>
+		    <li><a tabindex="2" href="javascript:void(0)">Remove This Group</a></li>
+		  </ul>
+		</div>
+		<div id="model-menu">
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a tabindex="0" href="javascript:void(0)">Add Dependency</a></li>
+		  </ul>
+		</div>
+		<div id="model-app-menu">
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a tabindex="0" href="javascript:void(0)">App Details</a></li>
+		    <li><a tabindex="1" href="javascript:void(0)">Remove App From Group</a></li>
+		    <li><a tabindex="2" href="javascript:void(0)">Configuration</a></li>
+		  </ul>
+		</div>
+		<div id="instance-group-menu">
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a tabindex="0" href="javascript:void(0)">Scale In</a></li>
+		    <li><a tabindex="1" href="javascript:void(0)">Scale Out</a></li>
+		    <li><a tabindex="2" href="javascript:void(0)">Scale To</a></li>
+		    <li><a tabindex="3" href="javascript:void(0)">Metering</a></li>
+		  </ul>
+		</div>
+		<!--demo end-->
+     </body>
+</html>

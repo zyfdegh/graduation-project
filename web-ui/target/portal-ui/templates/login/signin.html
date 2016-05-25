@@ -1,0 +1,35 @@
+<div class="login-area">
+		<div class="form-row">
+			<div class="input-group">
+				<span class="input-group-addon">
+			        <span class="glyphicon glyphicon-user" id="email" aria-hidden="true"></span>
+			    </span>
+			  <input type="text" class="form-control" placeholder="{{'signInPage.email' | translate}}" ng-model="userInfo.email" ng-enter="doLogin()">
+			  
+			</div>
+		<div ng-hide="userNameResult.status" class="error-message">
+			<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+			<font>{{'confirmMessage.userNameResult' |translate}}</font>
+		</div>
+		</div>
+		<div class="form-row">
+			<div class="input-group">
+				<span class="input-group-addon">
+			        <span class="glyphicon glyphicon-lock" id="password" aria-hidden="true"></span>
+			    </span>
+			  <input type="password" class="form-control" placeholder="{{'signInPage.password' | translate}}" ng-model="userInfo.password" ng-enter="doLogin()">
+			</div>
+			<div ng-hide="passwordResult.status" class="error-message">
+				<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+				<font>{{'confirmMessage.passwordResult' |translate}}</font>
+			</div>
+					
+		</div>
+		<div class="form-link form-row">
+			<button type="button" class="register btn btn-link"><a href="#/signup">{{'signInPage.noAccount' | translate}}</a></button>
+		</div>
+		<div class="form-row">
+			<button class="btn btn-primary" ng-click="doLogin()" style="width:180px">{{'signInPage.signIn' | translate}}</button>
+		</div>
+
+</div>

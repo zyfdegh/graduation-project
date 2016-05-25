@@ -1,0 +1,11 @@
+<div id="left-nav">
+	<ul class="nav nav-pills nav-stacked">
+    	<li role="presentation" class="first-level {{item.ngclass}}" ng-repeat="item in navigators" style="margin-top: 0px">
+    		<a href="#{{item.href}}">{{item.name}}</a>
+    		<ul class="nav nav-pills nav-stacked" style="background-color: #ffffff">
+				<li role="presentation" class="{{subitem.ngclass}}" ng-repeat="subitem in item.child" style="margin-top: 0px">
+					<a href="#{{subitem.href}}"><span style="margin-left: 25px">{{subitem.name}}</span></a></li>
+			</ul>
+    	</li>
+    </ul>
+</div>

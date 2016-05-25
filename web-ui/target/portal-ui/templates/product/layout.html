@@ -1,0 +1,46 @@
+<div id="right-content">
+	<div class="right-content-header"><div class="right-content-header-label">{{'leftNav.customization.layoutManagement' | translate}}</div></div>
+	<div style="padding: 20px">
+		<tabset>
+		    <tab>
+		      	<tab-heading style="color:#282828">
+		        	<i class="glyphicon glyphicon-th"></i> {{'rightContent.layoutManagement.themes' | translate}}
+		      	</tab-heading>
+		      	<div class="form-row" style="width:450px;margin: auto;margin-top: 40px;height: 40px">
+					<div style="float: left;margin-top: 6px;color: #4c4c4c;font-size: 14px">{{'rightContent.layoutManagement.selectTheme' | translate}}</div>
+					<select name="themesList" style="float: right;height:36px;width:300px;color: #6b6b6b;font-size: 16px;margin-top: 5px">
+						<option value="default">Default</option>
+						<option value="linker">Linker</option>
+						<option value="hp">HP</option>
+					</select>
+				</div>
+				<div class="form-row" style="width:450px;margin: auto;margin-top: 40px;height:40px">
+					<div style="float: left;margin-top: 6px;color: #4c4c4c;font-size: 14px">{{'rightContent.layoutManagement.uploadLogo' | translate}}</div>
+					<input type="file" name="logoupload" style="float: right;height:36px;width:300px;color: #6b6b6b;font-size: 16px;margin-top: 5px">
+				</div>	
+		    </tab>
+		    <tab>
+		      	<tab-heading style="color:#282828">
+		        	<i class="glyphicon glyphicon-menu-hamburger"></i> {{'rightContent.layoutManagement.marketplaceLayout' | translate}}
+		      	</tab-heading>
+		      	<div style="width:100%;padding: 20px">
+		      		<div class="layout-templates-area">
+		      			<div class="a-apps-title">{{'rightContent.layoutManagement.layoutTemplates' | translate}}</div>
+						<div id="availableAppsArea" class="a-apps-area" style="padding-top: 30px">
+							<layout1></layout1>
+							<layout2></layout2>
+							<layout3></layout3>
+							<layout4></layout4>
+						</div>
+		      		</div>
+		      		<div class="layout-designer-area">
+			      		<layoutdesigner></layoutdesigner>
+					</div>
+		      	</div>
+		      	<div class="layout-footer">
+					<span class="right-content-foot-button" ng-click="saveLayout()">{{'rightContent.layoutManagement.saveLayout' | translate}}</span>
+				</div>
+		    </tab>
+		</tabset>
+	</div>	
+</div>

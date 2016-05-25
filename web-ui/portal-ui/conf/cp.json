@@ -1,0 +1,3 @@
+{
+	"pipework" : "/usr/local/bin/pipework brlinker %*app_container_id*.[docker_container_name]% %ALLOCATE-ipAddressResource:[ipAddress]@[gateway]%"
+}

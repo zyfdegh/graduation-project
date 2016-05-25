@@ -1,0 +1,16 @@
+<!--<div class="mpp-block" style="width:{{layout.new.width}}" ng-if="layout.new.display && serviceGroups.length>0">-->
+<div class="mpp-block" style="width:100%">
+	<div class="mpp-block-title">{{layout.popular.title | translate}}</div>
+	<div class="mpp-block-content">
+		<div ng-repeat="serviceGroup in serviceGroups" class="row" style="margin-bottom:30px;">
+			<div style="width:100px;float:left;margin-left:40px"><img src="{{serviceGroup.imageSrc}}" width="100%"/></div>
+			<div style="width:65%;float:left;margin-left:50px">
+				<div style="font-weight:600;font-size:18px;color:#337ab7">{{serviceGroup.displayName}}</div><br/>
+				<div style="height:50px;overflow: auto;">{{serviceGroup.desc}}</div>
+			</div>
+			<div class="service-cart" style="margin-top:50px;cursor: pointer;" ng-click="confirmOrder(serviceGroup);">
+				{{serviceGroup.price | currency:"￥"}} &nbsp;&nbsp;<span class="glyphicon glyphicon-shopping-cart"  aria-hidden="true"></span>&nbsp;{{'mainPage.order' | translate}}
+			</div>
+		</div>
+	</div> 
+</div>

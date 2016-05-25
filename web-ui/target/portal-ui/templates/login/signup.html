@@ -1,0 +1,90 @@
+<div class="register-area">
+	<div ng-class="{&quot;register-step-widget&quot;: true, active: register.step==&quot;step1&quot;}">
+        <span class="register-step-font step-register">1. {{'signUpPage.stepsOne.signUp' | translate}}</span> 
+	</div>
+	<span class="register-step-arrow glyphicon glyphicon-arrow-right" aria-hidden="true"></span>	
+	<!-- <img src="images/arrow.jpg" style="width:10%; height:4%; margin-left:3%;"/> -->
+	<div ng-class="{&quot;register-step-widget&quot;: true, active: register.step==&quot;step2&quot;}" style="float:right">
+        <span class="register-step-font step-active">2. {{'signUpPage.stepsTwo.emailActivation' | translate}}</span>  
+	</div>
+	<div class="register-form" ng-show="register.step==&quot;step1&quot;? true : false;">	
+		  <div class="form-group">
+		    	<label for="namespace">{{'signUpPage.stepsOne.namespace' | translate}}
+		    	<span style="color:red;font-weight:bold">*</span><span>{{'signUpPage.stepsOne.namespaceDesc' | translate}}</span> </label>
+		    	<input type="text" class="form-control" id="namespace" placeholder="{{'signUpPage.stepsOne.namespace' | translate}}" ng-model="userInfo.alias">
+		    	<div ng-hide="namespaceResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.namespaceResult' |translate}}</font>
+				</div>
+				<div ng-hide="namespacePatternResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.namespacePatternResult' |translate}}</font>
+				</div>
+		  </div>
+		  <div class="form-group">
+		    	<label for="email">{{'signUpPage.stepsOne.emailAddress' | translate}} <span style="color:red;font-weight:bold">*</span></label>
+		    	<input type="email" class="form-control" id="email" placeholder="{{'signUpPage.stepsOne.emailAddress' | translate}}" ng-model="userInfo.email">
+		    	<div ng-hide="emailResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.emailResult' |translate}}</font>
+				</div>
+		  </div>
+		  <div class="form-group">
+		    	<label for="password">{{'signUpPage.stepsOne.password' | translate}} <span style="color:red;font-weight:bold">*</span></label>
+		    	<input type="password" class="form-control" id="password" placeholder="{{'signUpPage.stepsOne.password' | translate}}" ng-model="userInfo.password">
+		    	<div ng-hide="passwordResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.passwordResult' |translate}}</font>
+				</div>
+		  </div>
+		   <div class="form-group">
+		   	 	<label for="confirmPwd">{{'signUpPage.stepsOne.confirmPassword' | translate}} <span style="color:red;font-weight:bold">*</span></label>
+		    	<input type="password" class="form-control" id="confirmPwd" placeholder="{{'signUpPage.stepsOne.confirmPassword' | translate}}" ng-model="userInfo.confirmpassword">
+		    	<div ng-hide="confirmPwdResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.confirmPwdResult' | translate}}</font>
+				</div>
+				<div ng-hide="confirmCoPwdResult.status" class="error-message">
+					<span class="failed-icon-small glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					<font>{{'confirmMessage.confirmCoPwdResult' | translate}}</font>
+				</div>
+		  </div>
+		  <div class="form-group">
+		      <label for="company">{{'signUpPage.stepsOne.company' | translate}}</label>
+		      <input type="text" class="form-control" id="company" placeholder="{{'signUpPage.stepsOne.company' | translate}}" ng-model="userInfo.company">
+		  </div>
+		  <div class="form-group">
+		      <label for="phone">{{'signUpPage.stepsOne.phone' | translate}}</label>
+		      <input type="text" class="form-control" id="phone" placeholder="{{'signUpPage.stepsOne.phone' | translate}}" ng-model="userInfo.phonenumber">
+		  </div>
+		  <div class="form-group">
+		      <label for="address">{{'signUpPage.stepsOne.address' | translate}}</label>
+		      <textarea class="form-control" id="address" ng-model="jobInfo.description" rows="3" ng-model="userInfo.address">
+	          </textarea>
+		  </div>
+		  <div class="form-group">
+		      <label>{{'signUpPage.stepsOne.how' | translate}}</label>
+		      <select class="form-control" ng-model="userInfo.infosource">                  
+                  <option value="community">{{'signUpPage.stepsOne.how.community' | translate}}</option>
+                  <option value="network">{{'signUpPage.stepsOne.how.network' | translate}}</option>
+                  <option value="advertisement">{{'signUpPage.stepsOne.how.advertisement' | translate}}</option>
+                  <option value="friends">{{'signUpPage.stepsOne.how.friends' | translate}}</option> 
+                  <option value="others">{{'signUpPage.stepsOne.how.others' | translate}}</option>                
+              </select>
+		  </div>
+		  <button class="btn btn-success" ng-click="doSignUp()" ng-disabled="!policy.agree" style="float:left">{{'signUpPage.stepsOne.submit' | translate}}</button>
+		  <div class="checkbox" style="margin-left:20px;float:left">
+			  <label>
+			    <input type="checkbox" ng-check="policy.agree" ng-click="toggleStatus();">
+			     {{'signUpPage.stepsOne.agree' |  translate }} 
+			     &lt;&lt;&nbsp;<a href="policy.html" style="font-weight:bold" target="_blank">{{'signUpPage.stepsOne.policy' |  translate }}</a>&nbsp;&gt;&gt;
+			  </label>
+		  </div>
+		  <a href="#login.html" style="float:left; width:100%;margin-top:10px;font-weight:bold">{{'signUpPage.stepsOne.hasAccount' | translate}}</a>
+   </div>
+   <div class="register-emailActive" ng-show="register.step==&quot;step2&quot;? true : false;">	
+		  <div class="email-area"></div>
+		  <p class="font-area">{{'signUpPage.stepsTwo.info' | translate}}</p>
+		  <!-- <a href="#login.html">{{'signUpPage.stepsTwo.submit' | translate}}</a> -->
+   </div>
+</div>

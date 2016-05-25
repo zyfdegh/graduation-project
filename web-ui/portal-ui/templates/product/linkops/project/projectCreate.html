@@ -1,0 +1,23 @@
+<div class="modal-header">
+     <h4 class="modal-title">{{'rightContent.linkops.createProject' | translate}}</h4>
+</div>
+<div class="modal-body">
+   <form class="form-horizontal">
+	  <div class="form-group">
+	    <label for="projectName" class="col-sm-3 control-label">{{'rightContent.linkops.projectName' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="projectName" placeholder="{{'rightContent.linkops.createProject' | translate}}" ng-model="projectInfo.name">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-3 control-label">{{'leftNav.serviceDesigner.serviceModel' | translate}}</label>
+	    <div class="col-sm-9">
+		     <select class="form-control" ng-model="selectedServiceGroup" ng-options="serviceGroup.id for serviceGroup in serviceGroups track by serviceGroup.id"></select>
+	    </div>
+	  </div>
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close('execute')">{{'common.create' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="close('cancel')">{{'common.cancel' | translate}}</button>
+</div>

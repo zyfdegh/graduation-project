@@ -1,0 +1,25 @@
+<div id="right-content" class="mpp-content">
+	<div class="right-content-header">
+		<div class="right-content-header-label">{{ 'rightContent.tenant.title' | translate }}</div>
+	</div>
+	<div class="inner-content">
+		<table class="table table-striped">
+	         <thead>
+	            <tr>
+	                 <th>{{ 'rightContent.tenant.tenantId' | translate }}</th>
+	                 <th>{{ 'rightContent.tenant.tenantName' | translate }}</th>
+	                 <th>{{ 'rightContent.tenant.description' | translate }}</th>
+	                 <th>{{ 'rightContent.tenant.createdTime' | translate }}</th>
+	            </tr>
+	         </thead>
+	         <tbody>
+	            <tr ng-repeat="tenant in tenants">
+	                  <td>{{tenant.id}}</td>
+	                  <td>{{tenant.tenantname}}</td>
+	                  <td>{{tenant.desc}}</td>
+	                  <td>{{tenant.time_create}}</td>
+	            </tr>
+	         </tbody>
+	   </table>
+   </div>
+</div>

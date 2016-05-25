@@ -1,0 +1,435 @@
+{
+	"logout":"Logout",
+	"signUp":"Sign Up",
+	"signIn":"Sign In",
+	"error" : {
+		"ECONNREFUSED" : "Connect Controller Refused",
+		"ControllerException" : "Controller Exception"
+	},
+	"linkerCloudPlatform" : "Linker Cloud Platform",
+	"AliCloud" : "AliCloud",
+	"LinkerCloud" : "LinkerCloud",
+ 	"common":{
+		"uploadFile" : "Upload File",
+		"uploadedFile" : "Uploaded File",
+		"anotherOne" : "Add another",
+		"status" : "Status",
+		"createdTime" : "Created Time",
+		"actions" : "Actions",
+		"delete" : "Delete",
+		"deleteConfirm" : "Delete Confirm",
+		"create" : "Create",
+		"update" : "Update",
+		"startUpload" : "Start Upload",
+		"action" : "Action",
+		"chooseFile" : "Choose File to be Uploaded",
+		"detail" : "Detail Information",
+		"refresh" : "Refresh",
+		"cancel" : "Cancel",
+		"deploy" : "Deploy",
+		"terminate" : "Terminate",
+		"terminateConfirm" : "Terminate Confirm",		
+		"version" : "Version",
+		"type" : "Type",
+		"changeStatus" : "Change Status",
+		"jobEnv" : "Job Env",
+		"orderId" : "Order ID",
+		"branch" : "Branch",
+		"build" : "Build",
+		"orderService" : "Order Service",
+		"orderConfirmQues" : "Do you want to order",
+		"orderBtn" : "Order",
+		"cancelBtn" : "Cancel",
+		"operationFail" : "Operation Failed",
+		"account" : "Account",
+		"url" : "URL",
+		"close":"Close",
+		"success" : "Success"
+	},
+
+	"signInPage":{
+		"signIn":"Sign In",
+		"noAccount":"No Account?Sign Up",
+		"email":"Email",
+		"password":"Password"	
+	},
+	"confirmMessage":{
+		"namespaceResult":"namespace is required",
+		"namespacePatternResult":"Namespace must be lower charactor or number",
+		"userNameResult":"email is required",
+		"passwordResult":"password is required",
+		"emailResult":"email is required",
+		"confirmPwdResult":"confirm password is required",
+		"confirmCoPwdResult":"inconsistent with the password"
+	},
+	"signUpPage":{
+		"stepsOne":{
+			"signUp":"Sign up",
+			"namespace" : "Namespace",
+			"namespaceDesc" : "(This parameter is the namespace of model design through Linker)",
+			"emailAddress":"Email Address",
+			"password":"Password",
+			"confirmPassword":"Confirm Password",
+			"company":"Company",
+			"phone":"Phone",
+			"address":"Address",
+			"how":"How to know Linker Cloud",
+			"hasAccount":"Has Account!Sign in",
+			"submit":"Submit",
+			"agree" : "I have read and agree the service policy",
+			"policy" : "Linker Service Policy"
+		},
+		"stepsOne.how":{
+				"community":"Community",
+				"network":"Network",
+				"advertisement":"Advertisement",
+				"friends":"Friends",
+				"others":"Others"
+		},
+		"stepsTwo":{
+			"emailActivation":"Email Activation",	
+			"info":"Your information has been submitted and we have sent an E-Mail to you. You need to active your accout according to E-Mail content.",
+			"submit":"Submit"
+		}
+	},	
+	"mainPage" : {
+		"newService" : "New Service",
+		"popularProducts":"Popular Products",
+		"featuredProducts":"Featured Products",
+		"allProducts":"All Products",
+		"order":"Order",
+		"orderConfirmMessage" : "Please sign in before order sevice, sign in now ?"
+	},
+	"mainMenu": {
+		"market":"Market",
+		"workspace" : "Workspace",
+		"solutions" : "Solutions",
+		"pricing" : "Pricing",
+		"partners" : "Partners",
+		"documents" : "Documents"
+	},
+	"leftNav": {
+		"category":{
+			"usageInformation" : "Usage Information",
+			"onboard":"Onboard Service",
+			"serviceDesigner" : "Service Designer",
+			"resources" : "Resources",
+			"identityManagement" : "Identity Management",
+			"payment" : "Payment",
+			"linkOps" : "LinkOps",
+			"customization" : "Customization"
+		 },
+		"usageInformation":{
+			"dashboard" : "Dashboard",
+			"serviceSubscriptions" : "Service Subscriptions"
+		},
+		"onboard":{
+			"file" : "File"			
+		},
+		"serviceDesigner":{
+			"appModel" : "App Model",
+			"serviceModel" : "Service Model"
+		},
+		"resources":{
+			"platformAccount" : "Platform Account"
+		},
+		"identityManagement":{
+			"tenant" : "Tenant"			
+		},
+		"payment":{
+			"billing" : "Billing"
+		},
+		"linkOps":{
+			"project" : "Project",
+			"contentManagement" : "Content Management",
+			"toolsInformation" : "Tools Information"
+		},
+		"customization":{
+			"layoutManagement" : "Layout Management"
+		}	
+	},
+	"rightContent":{
+		"dashboard" : {
+             "instanceStatusNum" : "Instance Status and Number",
+             "cpuMatrix" : "CPU Usage platform",
+             "memoryMatrix" : "Memory Usage platform",
+             "diskMatrix" : "Disk Usage platform"
+		},
+
+		"tenant" : {
+			"title":"Tenant",
+			"tenantId":"Tenant ID",
+			"tenantName":"Tenant Name",
+			"description":"Description",
+			"createdTime" : "Created Time"
+			},
+		"linkops" : {
+			"deleteMessage" : "Are you sure you want to delete this content ?",
+			"dockerImage" : "Docker Image",
+			"fileId" : "File ID",
+			"fileName" : "File Name",
+			"dockerfileName" : "DockerFile Name",
+            "dockerImageName" : "DockerImage Name",
+            "imageVersion" : "DockerImage Tag",
+            "project":"Project",
+            "projectId":"Project ID",
+            "projectName" : "Project Name",
+            "createProject" : "Create Project",
+            "gitUrl" : "Git URL",
+            "viewJobs" : "Jobs",
+            "viewArtifacts" : "Artifacts",
+            "orderLinkOps" : "Order a LinkOps Service",
+            "envName" : "Environment Name",
+            "allEnv" : "All Environment",
+            "createJob" : "Create Job",
+            "jobs" : "Jobs",
+            "jobId" : "Job ID",
+            "jobName" : "Job Name",
+            "artifacts" : "Artifacts",
+            "artifactId" : "Artifact ID",
+            "artifactName" : "Artifact Name",
+            "createJob" : "Create Job",
+            "createArtifact" : "Create Artifact",
+            "deleteArtifact" : "Delete",
+            "updateArtifact" : "Update",
+            "assignDockerfiles" : "Assign Dockerfiles",
+            "groupId" : "Group ID",
+            "terminateMessage" : "Are you sure you want to terminate it?",
+            "groupId" : "Group ID",
+            "smID":"Service Model",
+            "hasNoEnv" : "You has no LinkOps service, order it now!",
+            "autoDeploy" : "Auto Deploy",
+            "startBuild" : "Job is building, go to 'Job Env' to check the process",
+            "building" : "Building"
+			},
+		"app" : {
+			"appModel":"App Model",
+			"appDetails":"App Details",
+			"appId":"App ID",
+			"inputAppId":"please input app id",
+			"appIdInvalid":"Invalid App ID",
+			"appIdInfo":"App ID is required",
+			"cpus":"CPU",
+			"cpusInfoRequired":"CPUs is required",
+			"cpusInfoMin":"At least 0.1",
+			"cpusInfoNumber":"Should be a number",
+			"memory":"Memory",
+			"memoryInfoRequired":"Memory is required",
+			"memoryInfoMin":"At least 1",
+			"memoryInfoNumber":"Should be a number",
+			"instances":"instances",
+			"instancesInfoRequired":"Instances is required",
+			"instancesInfoMin":"At least 1",
+			"instancesInfoNumber":"Should be a number",
+			"command":"Command",
+			"commandPlaceholder":"Type command here...",
+			"dockerImage":"Docker Image",
+			"dockerImageRadioFirst":"Linker Images",
+			"dockerImageRadioSecond":"DockerHub Images",
+			"dockerSelectImage":"Select an Image:",
+			"dockerSelectImageTag":"Select an Image Tag:",
+			"dockerSelectNote":"Note: These images are provided by Linker",
+			"dockerInputImage":"Input an Image",
+			"dockerInputImagePlaceholder":"image from dockerhub",
+			"dockerInputImageInfo":"Image is required",
+			"dockerInputImageNoteFirst":"Note: Please go to",
+			"dockerInputImageNoteSecond":"page to search the images which you want to use.",
+			"dockerParameters":"Docker Parameters",
+			"add_parameter":"add parameter",
+			"make_parameter_editable":"make parameter editable while ordering if checked",
+			"parameter_name":"parameter name",
+			"parameter_value":"parameter value",
+			"parameter_desc":"parameter description",
+			"remove_parameter":"remove parameter",
+			"no_parameters":"No Docker Parameters.", 	
+			"parameterNameRequired":"Name is required",
+			"parameterValueRequired":"Value is required",
+			"volumes":"Volumes",
+			"add_volume":"add volume",
+			"container_path":"container path",
+			"host_path":"host path",
+			"ro" : "ReadOnly",
+			"rw" : "ReadWrite",
+			"remove_volume":"remove volume",
+			"no_volumes":"No Container Volumes.", 	
+			"volumeContainerPathRequired":"Container path is required",
+			"volumeHostPathRequired":"Host path is required",
+			"environment":"Environment",
+			"environmentPlaceholder":"Type environment json here...",
+			"exposePorts" : "Expose Ports",
+			"yes" : "Yes",
+			"no" : "No",
+			"constraints":"Constraints",
+			"constraintsPlaceholder":"Type constraints json here...",
+			"Cancel":"Cancel",
+			"Save":"Save App",
+			"Delete":"Delete App",
+			"deleteConfirm" : "Delete Confirm",
+			"deleteMessage" : "Are you sure you want to delete the app model ?",
+			"deleteBtn" : "Delete",
+			"scale_enabled": "Allow Scaling",
+			"scale_minNum": "Minimum Number",
+			"scale_maxNum": "Mlaximum Number",
+			"scale_step": "Step Interval"
+		},
+		"serviceDesign" : {
+			"serviceModel":"Service Model",
+			"serviceName" : "Service Model Name",
+			"serviceNameInvalid":"Invalid Service Name",
+			"serviceNameRequired":"Service name is required",
+			"serviceDetails":"Service Details",
+			"newService" : "New Service Model",
+			"unpublished" : "unpublished",
+			"verifying" : "verifying",
+			"availableAppModels" : "Available App Models",
+			"availableTemplates" : "Available Templates",
+			"publishService" : "Publish Service",
+			"unpublishService" : "Unpublish Service",
+			"submitService" : "Submit Service To Verify",
+			"deleteServiceModel" : "Delete Service Model",
+			"saveServiceModel" : "Save Service Model",
+			"deleteConfirm" : "Delete Confirm",
+			"deleteMessage" : "The related configuration packages will be also deleted. Are you sure you want to delete the service model ?",
+			"deleteBtn" : "Delete",
+			"publishConfirm" : "Publish Confirm",
+			"publishMessage" : "All users will be able to order this service. Are you sure you want to publish the service?",
+			"publishBtn" : "Publish",
+			"unPublishConfirm" : "Unpublish Confirm",
+			"unPublishMessage" : "All users will not be able to order this service if you unpublish it. Are you sure you want to unpublish the service?",
+			"unPublishBtn" : "Unpublish",
+			"submitConfirm" : "Submit Confirm",
+			"submitMessage" : "After submitting your service, system admin will verify it to do publish or not. All users will be able to order this service if admin publish it. Are you sure you want to submit the service?",
+			"submitBtn" : "Submit",
+			"priceTitle" : "Price and Describe Service",
+			"priceForDesign" : "After publishing it, anyones will be able to order your service or use it as a template in their service design by paying to you, please price your service(Unit:RMB/Yuan)",
+			"descForDesign" : "Please describe your service to help users understand your service better",
+			"priceRequired":"Price is required",
+			"priceMin":"At least 0",
+			"priceNumber":"Should be a number",
+			"descRequired":"Description is required"
+		},
+		"serviceSubscriptions" : {
+			"services" : "Service Subscriptions",
+			"noServiceFound" : "No Service Subscriptions Found.",
+			"serviceDetails" : "Subscription Details",
+			"terminate" : "Terminate Service",
+			"terminateConfirm" : "Terminate Confirm",
+			"terminateMessage" : "Are you sure you want to terminate the service ?",
+			"terminateBtn" : "Terminate"
+		},
+		"layoutManagement" : {
+			"themes" : "Themes",
+			"marketplaceLayout" : "Marketplace Layout",
+			"selectTheme" : "Select Theme ",
+			"uploadLogo" : "Upload Logo ",
+			"layoutTemplates" : "Layout Templates",
+			"advertiseArea" : "Advertise Area (width must be 100%)",
+			"saveLayout" : "Save Layout",
+			"success" : "Success",
+			"saveLayoutSuccess" : "Save Layout Successfully.",
+			"ok_btn" : "OK"
+		},
+		"billing" : {
+			"billing_records" : "Billing Records",
+			"create_time" : "Create Time",
+			"from" : "From",
+			"to" : "To",
+			"transaction_type" : "Transaction Type",
+			"all" : "All",
+			"incoming" : "Incoming",
+			"consume" : "Consume",
+			"search" : "Search",
+			"user" : "User",
+			"service_group" : "Service Group",
+			"price" : "Price",
+			"first_page" : "First Page",
+			"previous_page" : "Previous Page",
+			"next_page" : "Next Page",
+			"last_page" : "Last Page",
+			"nodata" : "No Bill Records Found.",
+			"sun" : "Sun",
+			"mon" : "Mon",
+			"tue" : "Tue",
+			"wed" : "Wed",
+			"thu" : "Thu",
+			"fri" : "Fri",
+			"sat" : "Sat",
+			"clear" : "Clear",
+			"ok" : "Ok" 
+		}
+	},
+	"solution-photo-title":{
+		"header":"Linker Solution",
+		"title":{
+			"mobileGaming":"Mobile Gaming",
+			"dataRoaming":"Data Roaming",
+			"bigData":"Big Data",
+			"mobility":"Mobility",
+			"5g":"5G",
+			"mobility":"Mobility",
+			"onlineTraveling":"Online Traveling",
+			"internetofThings":"Internet of Things"
+		},
+		"content":"Linker Networks provides trusted, SaaS-driven solutions to help our customer meet their business needs. Running solutions in the Linker Marketplace can help them get their services onboard , design, up and running faster while providing the same level of business requirement in legacy Cloud provider. Linker Marketplace also provides resources connection as one hybrid resource pool around the world, so our customer can deploy their solutions where their customers are. The Linker Marketplace makes a broad set of services, partners, and support options easily available to help make sure that you can focus on what will make your solution a success. Click on any option to learn more about the benefits of that solution, see customer case studies, and find technical documentation, to help you get started today."
+	},
+	"solution-start":{
+		"header":"Getting started from here",
+		"title":{
+			"contactSales":"Contact Sales",
+			"partner":"Partners",
+			"signupforTesting":"Signup for testing"
+		},
+		"contactSales":{
+			"one":"Would you like one of our cloud expertise salespeople to contact you?",
+			"two":"Just fill out our contact form and a cloud salesperson will give you a call."
+		},
+		"partner":"Linker consulting partners bring years of experience in cloud deployments to help you get the right solution for your needs.",
+		"signupforTesting":"Linker provides testing bad for the guy who is interesting Linker technology .Ready to get started? You can signup for LinkerLoot online and get started with the Free Tier."
+	},
+	"pricing":{
+		"header":"Linker Pricing",
+		"mainContent":"Linker Marketplace offers you a simple, pay-as-you-go pricing approach for all Model/Service and Template as cloud services. With Linker Marketplace you pay only for the services you need, for as long as you use them and with no long-term contracts. In the meanwhile , you can create your own Model and Template based on Container or existed Model/Template, and publish online with proper pricing for others consuming .Linker pricing is based on each individual Model/Template so you only pay for what you use, and you don't have to worry about  dependencies, complex licensing or termination fees.",
+		"subHeader-1":"How Linker Pricing Helps Save You Money",
+		"subContent-1":"Linker pricing helps you reduce costs in multiple ways. With Linker pay-as-you-go model, you can plan for growth or increased demands from seasonality. Linker gives you the option to budget according to your business needs based on Hybrid Cloud environment.",
+		"subHeader-2":"How Pricing Principles help you",
+		"subContent-2":"Linker Marketplace pricing is based on 3 basic principles: pay-as-you-go, Reselling Model, pay less by using Container. This approach gives you the flexibility to match our pricing options to your needs and benefiting from growth and scale.",
+		"subPhoto-2":{
+			"payAs":"Pay-As-You-Go",
+			"resellingModel":"Reselling Model",
+			"payLess":"Pay Less by using Container"
+		},
+		"subHeader-3":"Fundamental Pricing Units",
+		"subPhoto-3":{
+			"model":"Model",
+			"template":"Template",
+			"dataTransfer":"Data Transfer"
+		}
+	},
+	"partners":{
+		"header":"Linker Partner Community",
+		"mainContent":"The Linker Partner Community is the global partner organization for Linker. It is focused on helping partners build a successful Model-based business by providing great business, technical, and GTM support.Linker Partner Community is a level-based comprised of Consulting and Technology Partners, who graduate through the tiers based on their level of engagement with Linker.",
+		"subContent-1":"In addition to joining Linker Partner Community, partners can also take advantage of programs focused on supporting partners in key areas of their Linker business. Learn more about a specific partner program by clicking on the highlighted program below:",
+		"subHeader-1":"Partner Community Programs",
+		"subPhoto-1":{
+			"marketplace":"Linker Marketplace ",
+			"reseller":"Reseller",
+			"model":"Linker Model Partner  ",
+			"industry":"Linker industry Partner"
+		},
+		"subHeader-2":"Partner Training",
+		"subPhoto-2":{
+			"certification":"Linker Certification",
+			"resource":"Training&Resources",
+			"community":"Linker Community",
+			"partnerOnboard":"Partner Onboard"
+		}
+	},
+	"footer":{
+		"first":"About Us",
+		"second":"Privacy Statement",
+		"third":"Terms of Use",
+		"forth":"Contact Us",
+		"fifth":"linkernetworks.com"
+	}
+
+}

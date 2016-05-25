@@ -1,0 +1,46 @@
+{
+  "uid": "Linker-Portal",
+  "port": 3000,
+  "linkopsProvider":"http://192.168.5.222:8082",
+  "ha": {
+    "enabled": true,
+    "numWorkers": 3,  
+    "redis": {
+      "options": {
+        "host": "127.0.0.1",
+        "port": 6379
+      }
+    },
+    "options" : {
+      "sentinels":[["192.168.5.105","26379"]],
+      "master_debug" : false,
+      "masterName" : "mymaster"
+    } 
+  }, 
+  "controllerProvider":{
+     "ha":{
+        "enabled":true,
+        "controller_url" : "localhost:8080",
+        "zookeeper_url":"172.17.2.2:2181,172.17.2.3:2181,172.17.2.4:2181"
+     }
+  },
+  "logging" : {
+    "console": {
+      "enabled": false,
+      "level": "info"
+    },
+    "file": {
+      "enabled": true,
+      "level": "error",
+      "maxSizeMB": 10,
+      "maxFile": 10
+    }
+  },
+  "dockerHub":{
+      "url" : "https://hub.docker.com/v2/search/repositories/?"
+  },
+  "linkerRepo":{
+      "url" : "http://linkerrepository:5000/v2/_catalog",
+      "tagUrl" : "http://linkerrepository:5000/v2/{variable}/tags/list"
+  }
+}

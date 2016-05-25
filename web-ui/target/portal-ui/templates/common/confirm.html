@@ -1,0 +1,17 @@
+<div enforce-focus>
+	<div class="modal-header">    
+    	<h4>{{title}}</h4>
+  	</div>
+  	<div class="modal-body">
+    	<div class="modal-icon-area">
+      		<span class="confirm-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
+    	</div>
+    	<div class="modal-font-area">
+      		<span>{{message}}</span> 
+    	</div> 
+  	</div>
+  	<div class="modal-footer">  
+  		<button class="btn btn-primary" ng-repeat="button in buttons" ng-click="doaction('close',button.action)">{{button.text}}</button>
+		<button class="btn btn-warning" ng-click="close('close')">{{'rightContent.app.Cancel' | translate}}</button>
+  </div>
+</div>

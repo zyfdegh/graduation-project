@@ -1,0 +1,58 @@
+<div id="right-content">
+  <div class="right-content-header">
+       <div class="right-content-header-label">{{'leftNav.linkOps.contentManagement' | translate}}</div>
+  </div>  
+  <tabset class="tab-set" style="margin:4px;">
+    <tab>
+    	<tab-heading >
+          <i class="glyphicon glyphicon glyphicon-open"></i>&nbsp;&nbsp;{{'common.uploadFile' | translate}}
+       </tab-heading>
+       <div style="margin:10px;">
+	        <button type="button" class="btn btn-default" ng-click="addContentComponent()"> {{'common.anotherOne' | translate}}</button>
+	  </div>
+	  <div ng-repeat="content in contentCount track by $index">
+	     <fileupload/>
+	  </div>
+    </tab>
+    <tab ng-click="getContentList();">
+    	<tab-heading >
+          <i class="glyphicon glyphicon-folder-close"></i>&nbsp;&nbsp;{{'common.uploadedFile' | translate}}
+       </tab-heading>
+        <table class="table table-striped" style="margin-top:10px;">
+           <thead>
+              <tr>
+                   <!-- <th>{{'rightContent.linkops.fileId' | translate}}</th>                   -->
+                   <th>{{'rightContent.linkops.fileName' | translate}}</th>
+                   <th>{{'rightContent.linkops.dockerImageName' | translate}}</th>
+                   <th>{{'rightContent.linkops.imageVersion' | translate}}</th>
+                   <th>{{'common.status' | translate}}</th>
+                   <th>{{'common.createdTime' | translate}}</th>
+                   <th>{{'common.actions' | translate}}</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr ng-repeat="content in contents">
+                    <!-- <td>{{content.id}}</td> -->
+                    <td>{{content.zipfile}}</td>
+                    <td>{{content.imagename}}</td>
+                    <td>{{content.version}}</td>
+                    <td>{{content.status}}</td>
+                    <td>{{content.time_create}}</td> 
+                    <td>  
+                     <div class="btn-group inner-button">
+                        <span type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{'common.action' | translate}} <span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu dropdown-menu-right">                         
+                          <li role="menuitem"><a ng-click="confirmDeleteContent(content.id)">{{'common.delete' | translate}}</a></li>
+                       <!--    <li role="menuitem"><a ng-click="changeStatus(content.id)">{{'common.changeStatus' | translate}}</a></li>    -->                         
+                        </ul>
+                      </div>   
+                    </td>              
+              </tr>
+           </tbody>
+     </table>
+    </tab>
+  </tabset> 
+  
+ </div>

@@ -1,0 +1,117 @@
+html{
+   	font-family: "HelveticaNeueBold","Helvetica",Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 14px;
+    display: block;
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-size: 1em;
+    /*line-height: 1.6em;*/
+    color: #333;
+    font-family: "HelveticaNeueBold","Helvetica",Helvetica,Arial,sans-serif;
+	margin: 0;
+    position: relative;
+    text-align: left;
+    height:100%;
+    width: 100%;
+}
+ul li{  
+   list-style-type:none; 
+   line-height: 28px; 
+} 
+a, a:hover{
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: #e6e6e6 0 1px 3px;
+    -moz-box-shadow: #e6e6e6 0 1px 3px;
+    box-shadow: #e6e6e6 0 1px 3px;
+}
+.glyphicon{
+    /*position: inherit !important;*/
+}
+.linker-logo {
+    margin:12px 0 0 20px;
+    width:232px;
+    float:left;
+}
+.footer{ 
+    width:100%;
+    text-align: center;
+    color: #282828;
+    padding: 8px 0;
+    font-size: 12px;
+    float:left;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ccc;
+} 
+.footer .links ul {
+    list-style: none outside none !important;
+    margin-bottom: 0 !important;
+}
+.footer .links ul li {
+    display: inline-block !important;
+    margin-right: 2px !important;
+    margin-left:0 !important;
+}
+.footer .links ul li a {
+    border-right: 1px dotted #555555 !important;
+    color: #555555 !important;
+    font-size: 12px !important;
+    padding-bottom: 1px !important;
+    padding-right: 5px !important;
+
+}
+.footer .links ul li:last-child a {
+    border-right: medium none !important;
+    padding-right: 0;
+}
+.error-message{
+    color:#d43f3a;
+    text-align:left;
+    margin-top:2px;
+}
+.modal-icon-area{
+    float:left;
+    width:30px;
+}
+.modal-font-area{
+    line-height:2;
+    margin-left: 45px;
+}
+
+.confirm-icon{
+    color:#337ab7;
+    font-size: 30px;
+
+}
+.success-icon{
+    color:#5cb85c;
+    font-size: 30px;
+
+}
+.failed-icon{
+    color:#d9534f;
+    font-size: 30px;
+}
+.failed-icon-small{
+    color:#d9534f;
+    font-size: 10px;
+}

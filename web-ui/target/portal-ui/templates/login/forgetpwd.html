@@ -1,0 +1,14 @@
+<div style="width:50%;margin: auto;margin-bottom: 20px"><span class="fw_b f_16">密码重置</span></div>
+<div class="login-container" style="text-align: center;height:240px">
+	<div style="margin:auto;width:80%;height:80%">
+		<div class="form-row">请输入您注册账号时所使用的邮箱地址</div>
+		<div class="form-row">
+			<input type="text" id="resetLinkEmail" class="form-control" placeholder="邮箱" ng-model="resetEmail" ng-blur="_checkEmail($event);">
+		    <a class="alert alert-danger" style="display: none"></a>
+		</div>
+		<div class="form-row">
+			<a class="btn btn-primary login-button" href="javascript:void(0)" ng-click="doApplyReset()"> 提交 </a>
+		    <a class="btn btn-primary bk-signin-button" href="#/"> 返回登录 </a>
+		</div>
+	</div>
+</div>

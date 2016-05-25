@@ -1,0 +1,41 @@
+<div id="right-content">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.billing.billing_records'|translate}}</div></div>
+	<div class="filters" style="width: 90%;margin: auto;padding:10px 0 13px 0;">
+		<form class="form-inline">
+			<span>{{'rightContent.billing.create_time' | translate}}: </span>
+			<input id="filter_date_from"  ng-model='filter_date_from' placeholder="{{'rightContent.billing.from' | translate}}" class="form-control search-bar laydate-icon" style="height:34px" readonly ng-focus="initDateComponent('filter_date_from')">
+			<input id="filter_date_to" ng-model='filter_date_to' placeholder="{{'rightContent.billing.to' | translate}}" class="form-control search-bar laydate-icon" style="height:34px" readonly ng-focus="initDateComponent('filter_date_to')">	
+			<span style="margin-left:15px">{{'rightContent.billing.transaction_type' | translate}}: </span>
+			<select class="form-control search-bar" ng-model="filter_transaction_type" style="margin-left:10px">
+				<option value="">{{'rightContent.billing.all' | translate}}</option>
+				<option value="Incoming">{{'rightContent.billing.incoming' | translate}}</option>
+				<option value="Consume">{{'rightContent.billing.consume' | translate}}</option>
+			</select>
+			<a class="btn btn-primary" role="button" ng-click="getBillRecords(true)" style="margin-left:15px">{{'rightContent.billing.search' | translate}}</a>
+		</form>
+	</div>
+	<div style="width:100%;text-align: center;">
+		<div style="width:90%;max-height:500px;margin: auto;overflow: auto;">
+			<table cellpadding="0" cellspacing="1" border="0" class="bill_table">
+				<tr style="height:38px;">
+					<td width="20%">{{'rightContent.billing.user' | translate}}</td>
+					<td width="20%">{{'rightContent.billing.service_group' | translate}}</td>
+					<td width="20%">{{'rightContent.billing.transaction_type' | translate}}</td>
+					<td width="20%">{{'rightContent.billing.price' | translate}}</td>
+					<td width="20%">{{'rightContent.billing.create_time' | translate}}</td>
+				</tr>
+				<tr ng-repeat="item in reports" style="height:38px;background:#ffffff;">
+					<td width="20%">{{item.username}}</td>
+					<td width="20%">{{item.servicegroup}}</td>
+					<td width="20%">{{item.transaction_type}}</td>
+					<td width="20%">{{item.price | currency:"￥"}}</td>
+					<td width="20%">{{item.time_create}}</td>
+				</tr>
+				<tr ng-show="reports.length==0" style="height:38px;background:#ffffff;">
+					<td colspan="5">{{'rightContent.billing.nodata' | translate}}</td>
+				</tr>
+			</table>
+		</div>
+		<mypagination present="currentPage" length="totalPage"></mypagination>
+	</div>
+</div>

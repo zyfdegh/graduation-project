@@ -1,0 +1,40 @@
+{
+   "dashboard_api" : {
+        "metrix" : "/v1/metrix"
+	},
+	"user_api" : {
+		"login" : "/v1/user/login",
+		"registry" : "/v1/user/registry",
+		"tenant" : "/v1/tenant",
+		"active" : "/v1/user/active",
+		"reactive" : "/v1/user/reactive"
+	},
+	"linkops_api" : {
+		"content" : "/v1/dockers",
+		"env" : "/v1/opsenvs",
+		"project" : "/v1/projects",
+		"job" : "/v1/jobs",
+		"artifact" : "/v1/artifacts",
+		"projectenvs":"/v1/projectenvs"
+	},
+	"model_api" : {
+		"app_service" : "/v1/apps/",
+		"serviceGroup_service" : "/v1/serviceGroups/",
+		"serviceGroup_service_published" : "/v1/serviceGroups/published",
+		"serviceGroupOrders_service" : "/v1/serviceGroupOrders/",
+		"instance_service" : "/v1/groupInstances/",
+		"app_instance_service" : "/v1/appInstances/",
+		"app_config_service" : "/v1/appConfigs/",
+		"app_operations" : "/v1/apps/operations/",
+		"serviceGroup_operations" : "/v1/serviceGroups/operations/",
+		"serviceGroupOrders_operations" : "/v1/serviceGroupOrders/operations/",
+		"publish_serviceGroup_service" : "/v1/serviceGroups/publish/",
+		"unpublish_serviceGroup_service" : "/v1/serviceGroups/unpublish/",
+		"submit_serviceGroup_service" : "/v1/serviceGroups/submit/"
+	},
+	"payment_api" : {
+		"billing" : "/v1/billing/",
+		"billing_all" : "/v1/billing/all",
+		"userAccounts" :"/v1/userAccounts/"
+	}
+}

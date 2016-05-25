@@ -1,0 +1,23 @@
+<div id="right-content" ng-if="!showDetail">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.serviceSubscriptions.services' | translate}}</div></div>
+	<div ng-if="runningOrders.length>0" ng-repeat="runningOrder in runningOrders" class="app-item" ng-click="getServiceDetail(runningOrder)">
+		<div class="app-image-container"><img src="{{runningOrder.imageSrc}}" class="container-image"></div>
+		<div class="app-item-id"><div class="app-item-id-label" ng-cloak>{{runningOrder.displayName}}</div></div>
+	</div>
+	<div ng-if="runningOrders.length==0">
+		<div class="no-data-label">{{'rightContent.serviceSubscriptions.noServiceFound' | translate}}</div>
+	</div>
+</div>
+<div id="right-content" ng-if="showDetail">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.serviceSubscriptions.serviceDetails' | translate}}</div></div>
+	<div style="height:600px">
+		<div class="service-design-area">
+			<div id="serviceTreeArea" style="width:100%;height:560px"></div> 
+		</div>
+	</div>
+	<div class="right-content-foot">
+		<span class="right-content-foot-button" ng-click="goBackToServiceList()">{{'rightContent.app.Cancel' | translate}}</span>
+		<span class="right-content-foot-button" ng-click="confirmDeleteServiceInstance()" ng-if="allow_delete_sgo">{{'rightContent.serviceSubscriptions.terminate' | translate}}</span>
+		<!--<span class="right-content-foot-button" ng-click="getInstanceByOrder()">Refresh</span>-->
+	</div>
+</div>

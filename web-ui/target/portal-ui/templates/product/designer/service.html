@@ -1,0 +1,62 @@
+<div id="right-content" ng-if="!showDetail">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.serviceDesign.serviceModel' | translate}}</div></div>
+	<div ng-repeat="serviceGroup in serviceGroups" class="app-item" ng-click="showServiceGroupDetail(serviceGroup)">
+		<div class="app-image-container"><img src="{{serviceGroup.imageSrc}}" class="container-image"></div>
+		<div class="app-item-id">
+			<div class="app-item-id-label" ng-cloak>{{serviceGroup.displayName}}</div>
+		</div>
+		<span class="glyphicon {{serviceGroup.stateicon}}" style="margin-top:-5px;margin-right:5px;float:right;font-size:10px" title="{{ serviceGroup.statetitle | translate}}">
+	</div>
+	<div class="app-item" ng-click="newServiceGroupDetail()"><img src="images/products/designer/app/newapp.png" style="margin-top:34px"></div>
+</div>
+<div id="right-content" ng-if="showDetail && isUpdate">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.serviceDesign.serviceDetails' | translate}}</div></div>
+	<div style="height:600px">
+		<div class="a-apps-div" ng-if="allow_update_sg">
+			<div class="a-apps-title" ng-click="openAppModels = true">{{'rightContent.serviceDesign.availableAppModels' | translate}}</div>
+			<div id="availableAppsArea" class="a-apps-area" ng-if="openAppModels">
+				<dragapptoservice>
+			</div>
+			<div class="a-apps-title" ng-click="openAppModels = false">{{'rightContent.serviceDesign.availableTemplates' | translate}}</div>
+			<div id="availableTemplatesArea" class="a-apps-area" ng-if="!openAppModels">
+				<dragtemplatetoservice>
+			</div>
+		</div>
+		<div class="{{allow_update_sg ? 'service-designer-div' : ''}}">
+			<div class="service-design-area">
+				<div id="modelDesignerArea" style="width:100%;height:560px;cursor: move" ondrop="finishDeleteApp(event)" ondragover="allowDrop(event)"></div> 
+			</div>
+		</div>
+	</div>
+	<div class="right-content-foot">
+		<span class="right-content-foot-button" ng-click="goBackToServiceList()">{{'rightContent.app.Cancel' | translate}}</span>
+		<span class="right-content-foot-button" ng-click="saveServiceModel()" ng-if="allow_update_sg">{{'rightContent.serviceDesign.saveServiceModel' | translate}}</span>
+		<span class="right-content-foot-button" ng-if="state!='' && allow_delete_sg" ng-click="confirmDeleteServiceModel()">{{'rightContent.serviceDesign.deleteServiceModel' | translate}}</span>
+		<span class="right-content-foot-button" ng-if="state=='verifying' && allow_publish_sg" ng-click="confirmPublishServiceModel(0)">{{'rightContent.serviceDesign.publishService' | translate}}</span>
+		<span class="right-content-foot-button" ng-if="(state=='verifying' || state=='published') && allow_publish_sg" ng-click="confirmPublishServiceModel(1)">{{'rightContent.serviceDesign.unpublishService' | translate}}</span>
+		<span class="right-content-foot-button" ng-if="state=='unpublished' && allow_submit_sg" ng-click="confirmSubmitServiceModel()">{{'rightContent.serviceDesign.submitService' | translate}}</span>
+	</div>
+</div>
+<div id="right-content" ng-if="showDetail && !isUpdate">
+	<div class="right-content-header"><div class="right-content-header-label">{{'rightContent.serviceDesign.newService' | translate}}</div></div>
+	<div style="height:200px">
+		<div style="float: left;width: 200px">
+			<div class="app-detail-item">
+				<div class="app-image-container"><img src="{{selectedModel.imageSrc}}" class="container-image"></div>
+				<div class="app-item-id"><div class="app-item-id-label" ng-cloak>{{selectedModel.displayName}}</div></div>
+			</div>	
+		</div>
+		<form name="serviceform" style="float: left;margin-left: 80px" novalidate>
+			<div class="app-detail-label">{{'rightContent.serviceDesign.serviceName' | translate}}</div>
+			<input type="text" name="serviceid" class="app-detail-input" ng-model="selectedModel.displayName" required ng-pattern="/^(([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])\\.)*([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])$/">
+			<span class="form-error" ng-show="serviceform.serviceid.$invalid">
+				<span ng-show="serviceform.serviceid.$error.pattern" id="invalidID">{{'rightContent.serviceDesign.serviceNameInvalid' | translate}}</span>
+				<span ng-show="serviceform.serviceid.$error.required">{{'rightContent.serviceDesign.serviceNameRequired' | translate}}</span>
+			</span>	
+		</form>
+	</div>
+	<div class="right-content-foot">
+		<span class="right-content-foot-button" ng-click="goBackToServiceList()">{{'rightContent.app.Cancel' | translate}}</span>
+		<span class="right-content-foot-button" ng-click="saveNewService()">{{'rightContent.serviceDesign.saveServiceModel' | translate}}</span>
+	</div>
+</div>

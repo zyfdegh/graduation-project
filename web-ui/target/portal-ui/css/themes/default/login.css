@@ -1,0 +1,112 @@
+.login-content{
+	width: 100%;
+	padding-top: 30px;
+	height: calc(100% - 110px);
+	float: left;
+	overflow: auto;
+	/*height: calc(100% - 90px);*/
+}
+.login-area{
+	background-image: url(../../../images/login_bg.png);
+	width: 328px;
+	height: 407px;
+	margin: auto;
+	padding: 150px 0;
+}
+.form-row{
+	width: 280px;
+	margin-left: 28px;
+	text-align: center;
+	margin:13px 25px;
+	float: left;
+
+}
+.form-link{
+	margin:0 25px;
+}
+.register{
+	color: #009edc;
+	float: right;
+	font-size: 14px;
+	cursor: pointer;
+}
+.login-button{
+	background-image: url(../../../images/btn1.png);
+	width: 200px;
+	height:40px;
+	color: white;
+	padding-top: 12px;
+    margin-left:40px;
+	cursor: pointer;
+}
+.register-area{
+	margin: auto;
+	padding: 10px 0;
+	height: 100%;
+	width:50%;
+}
+.register-step-widget{
+	background: #ccc;
+    height: 50px;
+	width: 40%;
+    float: left;
+    color: #fff;
+    text-align: center;
+    line-height: 3.3;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.register-step-widget.active{		
+	background: rgb(104,216,130);
+    background: -moz-linear-gradient(top, rgb(104,216,130) 0%, rgb(75,183,118) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(104,216,130)), color-stop(100%,rgb(75,183,118)));
+    background: -webkit-linear-gradient(top, rgb(104,216,130) 0%,rgb(75,183,118) 100%);
+    background: -o-linear-gradient(top, rgb(104,216,130) 0%,rgb(75,183,118) 100%);
+    background: -ms-linear-gradient(top, rgb(104,216,130) 0%,rgb(75,183,118) 100%);
+    background: linear-gradient(to bottom, rgb(104,216,130) 0%,rgb(75,183,118) 100%);
+    height: 50px;
+	width: 40%;
+    float: left;
+    color: #fff;
+    text-align: center;
+    line-height: 3.3;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.register-step-arrow{
+    color: #ccc;
+    float:left; 
+    margin: 15px 7%;
+    font-size:20px;
+}
+.register-step-font{
+    font-size:16px;
+    margin-right:2px;
+}
+.register-form{
+	float:left; 
+	margin:40px 15%; 
+	width:70%;
+}
+.register-form .form-group{
+	margin-bottom: 25px;
+}
+.register-emailActive{
+	float:left; 
+	margin:40px 15%; 
+	width:70%;
+}
+.register-emailActive .email-area{
+    background-image: url(../../../images/login/email.jpg);
+    width: 128px;
+    height: 128px;
+    margin:auto;
+}
+.register-emailActive .font-area{
+	margin:auto;
+	line-height: 2;
+	margin-bottom: 10px;
+}
+

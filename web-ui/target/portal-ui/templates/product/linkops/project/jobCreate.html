@@ -1,0 +1,46 @@
+<div class="modal-header">
+     <h4 class="modal-title">{{'rightContent.linkops.createJob' | translate}}</h4>
+</div> 
+<div class="modal-body">
+   <form class="form-horizontal">
+	   <div class="form-group">
+	    <label for="projectName" class="col-sm-3 control-label">{{'rightContent.linkops.projectName' | translate}}</label>
+	    <div class="col-sm-9">
+	      <span style="line-height:1.9;font-weight:600">{{projectInfo.name}}</span>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="jobName" class="col-sm-3 control-label">{{'rightContent.linkops.jobName' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="jobName" placeholder="{{'rightContent.linkops.jobName' | translate}}" ng-model="jobInfo.name">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="jobVersion" class="col-sm-3 control-label">{{'common.version' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="jobVersion" placeholder="{{'common.version' | translate}}" ng-model="jobInfo.version">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="jobBranch" class="col-sm-3 control-label">{{'common.branch' | translate}}</label>
+	    <div class="col-sm-9">
+	      <input type="text" class="form-control" id="jobBranch" placeholder="{{'common.branch' | translate}}" ng-model="jobInfo.branch">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="col-sm-3 control-label"></label>
+	    <div class="col-sm-9">
+	      <div class="checkbox">
+			  <label>
+			    <input type="checkbox" ng-check="autoDeploy" ng-click="toggleStatus();">
+			     {{'rightContent.linkops.autoDeploy' |  translate }}
+			  </label>
+			</div>
+	    </div>
+	  </div>
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close('execute')">{{'common.create' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="close('cancel')">{{'common.cancel' | translate}}</button>
+</div>

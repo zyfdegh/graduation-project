@@ -1,0 +1,238 @@
+<div id="right-content" class="mpp-content">
+  <div class="right-content-header">
+    <div class="right-content-header-label">{{'leftNav.linkOps.project' | translate}}</div>
+  </div>
+  <div class="inner-content">
+    <div style="margin-bottom:10px">
+        <button type="button" class="btn btn-default" ng-click="orderLinkOpsEnvs()">{{'rightContent.linkops.orderLinkOps' | translate}}</button>
+    </div>
+    <div style="float:left;width:100%" ng-hide="envs.length==0">
+        <div class="list-group" style="float:left;width:20%">          
+          <li class="list-group-item" style="background-color: #eee;color:#1f3d5c;font-weight:bold">{{'rightContent.linkops.allEnv' | translate}}<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="float:right;cursor:pointer"></span></li>
+          <li class="list-group-item" ng-class="{active: env.id==selectedEnv.id}" ng-repeat="env in envs" ng-click="showDetail(env);" style="cursor:pointer">{{env.name}}
+            <span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true" style="float:right;cursor:pointer" ng-click="confirmDeleteEnv($event,env)"></span>
+          </li>
+        </div>
+        <div style="float:left;width:80%">          
+           <tabset class="tab-set" style="margin-left:4px">
+              <tab>
+                <tab-heading>
+                    <i class="glyphicon glyphicon glyphicon-file"></i>&nbsp;&nbsp;{{'common.detail' | translate}}
+                 </tab-heading>
+                  <div style="margin:10px">
+                   <button type="button" class="btn btn-success" style="margin-top:8px" ng-click="refresh()">{{'common.refresh' | translate}}</button>
+                   <div class="list-group" style="margin-top:10px">
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">Gerrit IP</h4>
+                        <p class="list-group-item-text">{{selectedEnv.gerrit_info}}</p>
+                      </a>
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">Jenkins IP</h4>
+                        <p class="list-group-item-text">{{selectedEnv.jenkins_info}}</p>
+                      </a>
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">Nexus IP</h4>
+                        <p class="list-group-item-text">{{selectedEnv.nexus_info}}</p>
+                      </a>
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">LADP IP</h4>
+                        <p class="list-group-item-text">{{selectedEnv.ldap_info}}</p>
+                      </a>
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">{{'common.status' | translate}}</h4>
+                        <p class="list-group-item-text">{{selectedEnv.status}}</p>
+                      </a>
+                  </div>
+              </div>
+              </tab>
+              <tab ng-click="getProjects(selectedEnv.id);">
+                <tab-heading>
+                    <i class="glyphicon glyphicon glyphicon-folder-close"></i>&nbsp;&nbsp;{{'rightContent.linkops.project' | translate}}
+                 </tab-heading>
+                 <div style="margin:10px" ng-show="show.content == &quot;project&quot;">
+                     <button type="button" class="btn btn-success" style="margin-top:8px" ng-click="createProject();">{{'rightContent.linkops.createProject' | translate}}</button>
+                     <table class="table table-striped" style="margin-top:10px">
+                           <thead>
+                              <tr>
+                                   <th>{{'rightContent.linkops.projectId' | translate}}</th>
+                                   <th>{{'rightContent.linkops.projectName' | translate}}</th>
+                                   <th>{{'rightContent.linkops.gitUrl' | translate}}</th>
+                                   <th>{{'rightContent.linkops.smID' | translate}}</th>
+                                   <th>{{'common.status' | translate}}</th>
+                                   <th>{{'common.actions' | translate}}</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="project in projects">
+                                    <td>{{project.id}}</td>
+                                    <td>{{project.name}}</td>
+                                    <td>{{project.git_url}}</td>
+                                    <td>{{project.sm_id}}</td>
+                                    <td>{{project.status}}</td>
+                                    <td>  
+                                       <div class="btn-group inner-button">
+                                          <span type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{'common.action' | translate}} <span class="caret"></span>
+                                          </span>
+                                          <ul class="dropdown-menu dropdown-menu-right">
+                                            <li role="menuitem">
+                                              <a ng-click="confirmDeleteProject(project.id)">{{'common.terminate' | translate}}</a>
+                                            </li>  
+                                            <li role="separator" class="divider"></li>
+                                            <li role="menuitem">
+                                              <a ng-click="getJobs(project)">  {{'rightContent.linkops.viewJobs' | translate}}</a>
+                                            </li>                        
+                                            <li role="menuitem">
+                                              <a ng-click="getArtifacts(project)">  {{'rightContent.linkops.viewArtifacts' | translate}}</a>
+                                            </li>  
+                                          </ul>
+                                        </div>   
+                                    </td>              
+                              </tr>
+                           </tbody>
+                     </table>
+                 </div>
+                 <div style="margin:10px" ng-show="show.content == &quot;job&quot;">
+                      <ol class="breadcrumb">
+                        <li><a ng-click="gotoProjectPage()">{{'rightContent.linkops.project' | translate}}</a></li>
+                        <li class="active" style="font-weight:bold">{{selectedProject.name}}</li>
+                        <li class="active">{{'rightContent.linkops.jobs' | translate}}</li>
+                        <!-- <a style="margin-left:30px;font-weight:bold;" ng-click="gotoArtifactPage()">Go To Artifact Page</a> -->
+                      </ol>
+                       <button type="button" class="btn btn-success" ng-click="createJob();">{{'rightContent.linkops.createJob' | translate}}</button>
+                      <button type="button" class="btn btn-success" ng-click="getJobs(selectedProject);">{{'common.refresh' | translate}}</button>
+                      <table class="table table-striped" style="margin-top:10px">
+                           <thead>
+                              <tr>
+                                   <th>{{'rightContent.linkops.jobId' | translate}}</th>
+                                   <th>{{'rightContent.linkops.jobName' | translate}}</th>
+                                   <th>{{'common.version' | translate}}</th>
+                                   <th>{{'common.branch' | translate}}</th>
+                                   <th>{{'rightContent.linkops.autoDeploy' | translate}}</th>
+                                   <th>{{'common.createdTime' | translate}}</th>
+                                   <th>{{'common.status' | translate}}</th>
+                                   <th>{{'common.actions' | translate}}</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="job in jobs">
+                                    <td>{{job.id}}</td>
+                                    <td>{{job.name}}</td>
+                                    <td>{{job.version}}</td>
+                                    <td>{{job.branch}}</td>
+                                    <td>{{job.autodeploy || false}}</td>
+                                    <td>{{job.time_create}}</td>    
+                                    <td>{{job.status}}</td>                              
+                                    <td>  
+                                       <div class="btn-group inner-button">
+                                          <span type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{'common.action' | translate}} <span class="caret"></span>
+                                          </span>
+                                          <ul class="dropdown-menu dropdown-menu-right">
+                                            <li role="menuitem">
+                                              <a ng-click="confirmDeleteJob(job)">{{'common.delete' | translate}}</a>
+                                            </li>  
+                                            <li role="menuitem">
+                                              <a ng-click="buildJob(job)">  {{'common.build' | translate}}</a>
+                                            </li>  
+                                            <li role="menuitem">
+                                              <a ng-click="getProjectEnvs(job)">  {{'common.jobEnv' | translate}}</a>
+                                            </li>                        
+                                          </ul>
+                                        </div>   
+                                    </td>              
+                              </tr>
+                           </tbody>
+                     </table>
+                 </div>
+                 <div style="margin:10px" ng-show="show.content == &quot;artifact&quot;">
+                      <ol class="breadcrumb">
+                        <li><a ng-click="gotoProjectPage()">{{'rightContent.linkops.project' | translate}}</a></li>
+                        <li class="active" style="font-weight:bold">{{selectedProject.name}}</li>
+                        <li class="active">{{'rightContent.linkops.artifacts' | translate}}</li>
+                        <!-- <a style="margin-left:30px;font-weight:bold;" ng-click="gotoJobPage()">Go To Job Page</a> -->
+                      </ol>
+                       <button type="button" class="btn btn-success" ng-click="createArtifact();">{{'rightContent.linkops.createArtifact' | translate}}</button>
+                      <table class="table table-striped" style="margin-top:10px">
+                           <thead>
+                              <tr>
+                                   <th>{{'rightContent.linkops.artifactId' | translate}}</th>
+                                   <th>{{'rightContent.linkops.artifactName' | translate}}</th>
+                                   <th>{{'common.actions' | translate}}</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="artifact in artifacts">
+                                    <td>{{artifact.id}}</td>
+                                    <td>{{artifact.name}}</td>
+                                                                       
+                                    <td>  
+                                       <div class="btn-group inner-button">
+                                          <span type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{'common.action' | translate}} <span class="caret"></span>
+                                          </span>
+                                          <ul class="dropdown-menu dropdown-menu-right">
+                                            <li role="menuitem">
+                                              <a ng-click="updateArtifact(artifact)">{{'rightContent.linkops.updateArtifact' | translate}}</a>
+                                            </li>  
+                                            <li role="menuitem">
+                                              <a ng-click="confirmDeleteArtifact(artifact)">{{'rightContent.linkops.deleteArtifact' | translate}}</a>
+                                            </li>  
+                                          </ul>
+                                        </div>   
+                                    </td>              
+                              </tr>
+                           </tbody>
+                     </table>
+                 </div>
+                  <div style="margin:10px" ng-show="show.content == &quot;projectEnvs&quot;">
+                      <ol class="breadcrumb">
+                        <li><a ng-click="gotoProjectPage()">{{'rightContent.linkops.project' | translate}}</a></li>
+                        <li class="active" style="font-weight:bold">{{selectedProject.name}}</li>
+                        <li><a ng-click="gotoJobPage()">{{'rightContent.linkops.jobs' | translate}}</a></li>
+                        <li class="active" style="font-weight:bold">{{selectedJob.name}}</li>
+                      </ol>
+                       <button type="button" class="btn btn-success" ng-click="deployJob();">{{'common.deploy' | translate}}</button>
+                       <button type="button" class="btn btn-success" ng-click="getProjectEnvs(selectedJob);">{{'common.refresh' | translate}}</button>
+                      <table class="table table-striped" style="margin-top:10px">
+                           <thead>
+                              <tr>
+                                   <th>{{'common.orderId' | translate}}</th>
+                                   <th>{{'common.createdTime' | translate}}</th>
+                                   <th>{{'common.status' | translate}}</th>
+                                   <th>{{'common.actions' | translate}}</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="projectEnvs in projectEnvs">
+                                    <td><a href="#/products/services">{{projectEnvs.service_order_id}}</a></td>
+                                    <td>{{projectEnvs.time_create}}</td>
+                                   
+                                    <td>{{projectEnvs.status}}</td>
+                                                                       
+                                    <td>  
+                                       <div class="btn-group inner-button">
+                                          <span type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{'common.action' | translate}} <span class="caret"></span>
+                                          </span>
+                                          <ul class="dropdown-menu dropdown-menu-right">
+                                            <li role="menuitem">
+                                              <a ng-click="terminateProjectEnv(projectEnvs)">{{'common.terminate' | translate}}</a>
+                                            </li>  
+                                          </ul>
+                                        </div>   
+                                    </td>              
+                              </tr>
+                           </tbody>
+                     </table>
+                 </div>
+              </tab>
+           </tabset>
+        </div>
+    </div>
+    <div ng-show="envs.length == 0">
+        <p style="font-weight:bold;font-size:15px;color:#1f3d5c">{{'rightContent.linkops.hasNoEnv' | translate}}</p>
+    </div>
+  </div>
+
+</div>

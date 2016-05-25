@@ -1,0 +1,17 @@
+<div class="modal-header">
+     <h4 class="modal-title">{{'rightContent.linkops.orderLinkOps' | translate}}</h4>
+</div>
+<div class="modal-body">
+   <form class="form-horizontal">
+	  <div class="form-group">
+	    <label for="envName" class="col-sm-4 control-label">{{'rightContent.linkops.envName' | translate}}</label>
+	    <div class="col-sm-8">
+	      <input type="text" class="form-control" id="envName" placeholder="{{'rightContent.linkops.envName' | translate}}" ng-model="envInfo.name">
+	    </div>
+	  </div>
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="close('execute')">{{'common.orderBtn' | translate}}</button>
+    <button class="btn btn-warning" type="button" ng-click="close('cancel')">{{'common.cancel' | translate}}</button>
+</div>

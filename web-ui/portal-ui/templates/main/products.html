@@ -1,0 +1,16 @@
+<div id="left-nav" ng-show='logged'>
+   <div ng-repeat="item in navigators">  
+       <h4 class="left-nav-catagory">{{item.category | translate}}</h4>
+       <hr class="normal"/>
+       <div>
+           <ul >
+              <li role="presentation" class="{{subitem.ngclass}}" ng-repeat="subitem in item.child">
+                <a href="#{{subitem.href}}" class="left-nav-item">{{subitem.name | translate}}
+                  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                </a>
+              </li>             
+           </ul>
+       </div>
+   </div>
+</div>
+<ui-view name="productsMainpage"></ui-view>
